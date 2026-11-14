@@ -5,9 +5,10 @@ directories, registers all API routers, provisions database tables on startup,
 and seeds initial career catalog data and skill requirements.
 """
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
+from fastapi.responses import JSONResponse
 from contextlib import asynccontextmanager
 import os
 import logging
@@ -34,7 +35,20 @@ logger = logging.getLogger("skillpath.main")
 
 
 def seed_database():
-    """Seed initial career roles, skill catalog items, mappings, and admin user."""
+    """Seed initial career roles, skill catalog items, mappings, admin, and demo user."""
+    # Attempt comprehensive seed via seed module first
+    try:
+        import sys
+        backend_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+        if backend_dir not in sys.path:
+            sys.path.append(backend_dir)
+        import seed as seed_module
+        seed_module.seed()
+        logger.info("Database startup seed via seed module executed successfully.")
+        return
+    except Exception as exc:
+        logger.warning(f"Startup seed via seed module failed, falling back to core seed: {exc}")
+
     db = SessionLocal()
     try:
         # 1. Seed Admin User
@@ -187,7 +201,11 @@ def seed_database():
 async def lifespan(app: FastAPI):
     """Lifespan event handler for startup preparation and graceful shutdown."""
     logger.info("Executing SkillPath AI startup routines...")
-    os.makedirs(settings.UPLOAD_DIR, exist_ok=True)
+    try:
+        os.makedirs(settings.effective_upload_dir, exist_ok=True)
+    except Exception as exc:
+        logger.warning(f"Could not create uploads directory '{settings.effective_upload_dir}': {exc}")
+
     init_db()
     seed_database()
     yield
@@ -202,18 +220,52 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
-# Configure CORS Middleware
+# Configure CORS Middleware for localhost and deployed Vercel domains
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.cors_origins_list,
+    allow_origins=settings.cors_origins_list + ["https://*.vercel.app"],
+    allow_origin_regex=r"https://.*\.vercel\.app",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Serve uploaded static media files
-os.makedirs(settings.UPLOAD_DIR, exist_ok=True)
-app.mount("/uploads", StaticFiles(directory=settings.UPLOAD_DIR), name="uploads")
+# Global Exception Handler: Logs full error details while sanitizing sensitive information
+@app.exception_handler(Exception)
+async def global_exception_handler(request: Request, exc: Exception):
+    logger.error(
+        f"Unhandled server exception at {request.method} {request.url.path}: {exc}",
+        exc_info=True,
+    )
+    err_type = type(exc).__name__
+    err_str = str(exc)
+    safe_msg = "An internal server error occurred. Please check application logs."
+
+    if "database" in err_str.lower() or "sqlite" in err_str.lower() or "readonly" in err_str.lower():
+        safe_msg = "Database storage error: The database is initializing or storage is read-only."
+    elif settings.DEMO_MODE or settings.APP_ENV != "production":
+        safe_msg = f"{err_type}: {err_str}"
+        # Sanitize sensitive credential fields
+        for sensitive_key in ["password", "token", "secret", "key", "authorization"]:
+            if sensitive_key in safe_msg.lower():
+                safe_msg = f"{err_type}: Error processing credential or token data."
+                break
+
+    return JSONResponse(
+        status_code=500,
+        content={
+            "detail": safe_msg,
+            "error_type": err_type,
+            "path": request.url.path,
+        },
+    )
+
+# Serve uploaded static media files safely
+try:
+    os.makedirs(settings.effective_upload_dir, exist_ok=True)
+    app.mount("/uploads", StaticFiles(directory=settings.effective_upload_dir), name="uploads")
+except Exception as exc:
+    logger.warning(f"Static /uploads mount skipped: {exc}")
 
 # Register Routers
 app.include_router(auth_router)
@@ -226,6 +278,7 @@ app.include_router(documents_router)
 app.include_router(intelligence_router)
 
 
+@app.get("/api/health", tags=["Health"])
 @app.get("/health", tags=["Health"])
 async def health_check():
     """System health check endpoint."""
@@ -238,6 +291,7 @@ async def health_check():
     }
 
 
+@app.get("/api", tags=["Root"])
 @app.get("/", tags=["Root"])
 async def root():
     """Root metadata endpoint with status, version, and documentation link."""

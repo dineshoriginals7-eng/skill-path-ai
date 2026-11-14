@@ -45,60 +45,76 @@ async def register(
     """Register a new learner account, create an initial profile, and return JWT tokens."""
     email_clean = user_in.email.lower().strip()
 
-    existing_user = db.query(User).filter(User.email == email_clean).first()
-    if existing_user:
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail="An account with this email address already exists.",
+    try:
+        existing_user = db.query(User).filter(User.email == email_clean).first()
+        if existing_user:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="An account with this email address already exists.",
+            )
+
+        hashed_pw = get_password_hash(user_in.password)
+        new_user = User(
+            email=email_clean,
+            hashed_password=hashed_pw,
+            full_name=user_in.full_name.strip(),
+            is_active=True,
+            is_admin=(email_clean == settings.ADMIN_EMAIL.lower().strip()),
+        )
+        db.add(new_user)
+        db.flush()
+
+        # Create learner profile if it doesn't exist
+        profile = db.query(LearnerProfile).filter(LearnerProfile.user_id == new_user.id).first()
+        if not profile:
+            profile = LearnerProfile(
+                user_id=new_user.id,
+                onboarding_step=1,
+                onboarding_complete="false",
+            )
+            db.add(profile)
+
+        db.commit()
+        db.refresh(new_user)
+        db.refresh(profile)
+
+        role_val = new_user.role.value if hasattr(new_user.role, "value") else str(new_user.role)
+        access_token = create_access_token(
+            data={"sub": new_user.id, "email": new_user.email, "role": role_val}
+        )
+        refresh_token = create_refresh_token(data={"sub": new_user.id})
+
+        is_onboarding_done = (
+            profile.onboarding_complete.lower() == "true"
+            if profile and profile.onboarding_complete
+            else False
         )
 
-    hashed_pw = get_password_hash(user_in.password)
-    new_user = User(
-        email=email_clean,
-        hashed_password=hashed_pw,
-        full_name=user_in.full_name.strip(),
-        is_active=True,
-        is_admin=(email_clean == settings.ADMIN_EMAIL.lower().strip()),
-    )
-    db.add(new_user)
-    db.flush()
-
-    # Create learner profile if it doesn't exist
-    profile = db.query(LearnerProfile).filter(LearnerProfile.user_id == new_user.id).first()
-    if not profile:
-        profile = LearnerProfile(
+        return TokenResponse(
+            access_token=access_token,
+            refresh_token=refresh_token,
+            token_type="bearer",
             user_id=new_user.id,
-            onboarding_step=1,
-            onboarding_complete="false",
+            full_name=new_user.full_name,
+            email=new_user.email,
+            is_admin=new_user.is_admin,
+            onboarding_complete=is_onboarding_done,
         )
-        db.add(profile)
-
-    db.commit()
-    db.refresh(new_user)
-    db.refresh(profile)
-
-    role_val = new_user.role.value if hasattr(new_user.role, "value") else str(new_user.role)
-    access_token = create_access_token(
-        data={"sub": new_user.id, "email": new_user.email, "role": role_val}
-    )
-    refresh_token = create_refresh_token(data={"sub": new_user.id})
-
-    is_onboarding_done = (
-        profile.onboarding_complete.lower() == "true"
-        if profile and profile.onboarding_complete
-        else False
-    )
-
-    return TokenResponse(
-        access_token=access_token,
-        refresh_token=refresh_token,
-        token_type="bearer",
-        user_id=new_user.id,
-        full_name=new_user.full_name,
-        email=new_user.email,
-        is_admin=new_user.is_admin,
-        onboarding_complete=is_onboarding_done,
-    )
+    except HTTPException:
+        raise
+    except Exception as exc:
+        db.rollback()
+        logger.error(f"User registration processing failed for '{email_clean}': {exc}", exc_info=True)
+        err_msg = str(exc)
+        if "readonly" in err_msg.lower() or "unable to open database" in err_msg.lower():
+            raise HTTPException(
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                detail="Database storage is temporarily read-only or initializing. Please retry.",
+            )
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Registration service encountered an error: {type(exc).__name__}",
+        )
 
 
 @router.post("/login", response_model=TokenResponse)
@@ -151,55 +167,71 @@ async def login(
         )
 
     email_clean = str(email).lower().strip()
-    user = db.query(User).filter(User.email == email_clean).first()
 
-    if not user or not verify_password(str(password), user.hashed_password):
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Invalid email or password.",
-            headers={"WWW-Authenticate": "Bearer"},
+    try:
+        user = db.query(User).filter(User.email == email_clean).first()
+
+        if not user or not verify_password(str(password), user.hashed_password):
+            raise HTTPException(
+                status_code=status.HTTP_401_UNAUTHORIZED,
+                detail="Invalid email or password.",
+                headers={"WWW-Authenticate": "Bearer"},
+            )
+
+        if not user.is_active:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="Your account has been deactivated. Please contact support.",
+            )
+
+        # Ensure profile exists
+        profile = db.query(LearnerProfile).filter(LearnerProfile.user_id == user.id).first()
+        if not profile:
+            profile = LearnerProfile(
+                user_id=user.id,
+                onboarding_step=1,
+                onboarding_complete="false",
+            )
+            db.add(profile)
+            db.commit()
+            db.refresh(profile)
+
+        role_val = user.role.value if hasattr(user.role, "value") else str(user.role)
+        access_token = create_access_token(
+            data={"sub": user.id, "email": user.email, "role": role_val}
+        )
+        refresh_token = create_refresh_token(data={"sub": user.id})
+
+        is_onboarding_done = (
+            profile.onboarding_complete.lower() == "true"
+            if profile and profile.onboarding_complete
+            else False
         )
 
-    if not user.is_active:
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Your account has been deactivated. Please contact support.",
-        )
-
-    # Ensure profile exists
-    profile = db.query(LearnerProfile).filter(LearnerProfile.user_id == user.id).first()
-    if not profile:
-        profile = LearnerProfile(
+        return TokenResponse(
+            access_token=access_token,
+            refresh_token=refresh_token,
+            token_type="bearer",
             user_id=user.id,
-            onboarding_step=1,
-            onboarding_complete="false",
+            full_name=user.full_name,
+            email=user.email,
+            is_admin=user.is_admin,
+            onboarding_complete=is_onboarding_done,
         )
-        db.add(profile)
-        db.commit()
-        db.refresh(profile)
-
-    role_val = user.role.value if hasattr(user.role, "value") else str(user.role)
-    access_token = create_access_token(
-        data={"sub": user.id, "email": user.email, "role": role_val}
-    )
-    refresh_token = create_refresh_token(data={"sub": user.id})
-
-    is_onboarding_done = (
-        profile.onboarding_complete.lower() == "true"
-        if profile and profile.onboarding_complete
-        else False
-    )
-
-    return TokenResponse(
-        access_token=access_token,
-        refresh_token=refresh_token,
-        token_type="bearer",
-        user_id=user.id,
-        full_name=user.full_name,
-        email=user.email,
-        is_admin=user.is_admin,
-        onboarding_complete=is_onboarding_done,
-    )
+    except HTTPException:
+        raise
+    except Exception as exc:
+        logger.error(f"User login processing failed for '{email_clean}': {exc}", exc_info=True)
+        err_msg = str(exc)
+        if "readonly" in err_msg.lower() or "unable to open database" in err_msg.lower():
+            raise HTTPException(
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                detail="Database storage is temporarily read-only or initializing. Please retry.",
+            )
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Login authentication failed: {type(exc).__name__}",
+        )
 
 
 @router.post("/refresh", response_model=TokenResponse)
