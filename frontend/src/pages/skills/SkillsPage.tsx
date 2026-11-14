@@ -218,31 +218,31 @@ export const SkillsPage: React.FC = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-[#0b0d13] text-gray-100 p-6 sm:p-10 font-sans space-y-6 animate-pulse">
-        <div className="h-10 bg-gray-800/60 rounded-xl w-60" />
+      <div className="min-h-screen bg-[#090909] text-white p-6 sm:p-10 font-body space-y-6 animate-pulse">
+        <div className="h-10 bg-[#171717] rounded-xl w-60" />
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[1, 2, 3, 4].map((i) => (
-            <div key={i} className="h-24 bg-[#121522] rounded-2xl border border-gray-800" />
+            <div key={i} className="h-24 bg-[#141414] rounded-2xl border border-[#292929]" />
           ))}
         </div>
-        <div className="h-96 bg-[#121522] rounded-2xl border border-gray-800" />
+        <div className="h-96 bg-[#141414] rounded-2xl border border-[#292929]" />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#0b0d13] text-gray-100 p-4 sm:p-6 lg:p-8 font-sans selection:bg-indigo-500/30">
+    <div className="min-h-screen bg-[#090909] text-white p-4 sm:p-6 lg:p-8 font-body">
       <div className="max-w-7xl mx-auto space-y-6">
         {/* Top Header Section */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-2 border-b border-gray-800/80">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-2 border-b border-[#292929]">
           <div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 mb-2">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white/10 text-white border border-white/20 mb-2">
               <Brain className="w-3.5 h-3.5" /> Competency Intelligence Engine
             </div>
-            <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+            <h1 className="text-2xl sm:text-3xl font-extrabold font-heading text-white tracking-tight">
               Skill Evaluation & Knowledge Matrix
             </h1>
-            <p className="text-xs text-gray-400 mt-1">
+            <p className="text-xs text-[#A1A1AA] mt-1">
               Continuously calibrated by objective code execution, quiz telemetry, and verified project evidence.
             </p>
           </div>
@@ -250,14 +250,14 @@ export const SkillsPage: React.FC = () => {
           <div className="flex items-center gap-3">
             <Link
               to="/career-match"
-              className="px-4 py-2.5 rounded-xl bg-[#171b29] hover:bg-[#1e2336] border border-gray-700 text-white font-medium text-xs flex items-center gap-2 transition-all shadow-md"
+              className="px-4 py-2.5 rounded-xl bg-[#171717] hover:bg-[#222222] border border-[#292929] text-white font-medium text-xs flex items-center gap-2 transition-all shadow-sm"
             >
-              <Target className="w-3.5 h-3.5 text-indigo-400" />
+              <Target className="w-3.5 h-3.5 text-white" />
               <span>Career Fit</span>
             </Link>
             <Link
               to="/assessment"
-              className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 via-indigo-500 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white font-semibold text-xs shadow-lg shadow-indigo-600/30 transition-all flex items-center gap-2"
+              className="px-5 py-2.5 rounded-xl bg-white hover:bg-neutral-200 text-black font-semibold text-xs shadow-sm transition-all flex items-center gap-2"
             >
               <Sparkles className="w-4 h-4" />
               <span>New Assessment</span>
@@ -267,50 +267,50 @@ export const SkillsPage: React.FC = () => {
 
         {/* 4 Stat Cards */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div className="p-5 rounded-2xl bg-[#121522] border border-gray-800/90 shadow-md">
-            <span className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider block">
+          <div className="p-5 rounded-2xl bg-[#141414] border border-[#292929]">
+            <span className="text-[11px] font-semibold text-[#A1A1AA] uppercase tracking-wider block">
               Verified Mastered
             </span>
-            <span className="text-2xl sm:text-3xl font-extrabold text-emerald-400 mt-1 block">
+            <span className="text-2xl sm:text-3xl font-extrabold font-heading text-white mt-1 block">
               {strongCount}
             </span>
-            <span className="text-[11px] text-emerald-500/80 mt-1 block font-medium">
+            <span className="text-[11px] text-[#A1A1AA] mt-1 block font-medium">
               &ge; 70% Score Threshold
             </span>
           </div>
 
-          <div className="p-5 rounded-2xl bg-[#121522] border border-gray-800/90 shadow-md">
-            <span className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider block">
+          <div className="p-5 rounded-2xl bg-[#141414] border border-[#292929]">
+            <span className="text-[11px] font-semibold text-[#A1A1AA] uppercase tracking-wider block">
               Developing
             </span>
-            <span className="text-2xl sm:text-3xl font-extrabold text-amber-400 mt-1 block">
+            <span className="text-2xl sm:text-3xl font-extrabold font-heading text-white mt-1 block">
               {inProgressCount}
             </span>
-            <span className="text-[11px] text-amber-500/80 mt-1 block font-medium">
+            <span className="text-[11px] text-[#A1A1AA] mt-1 block font-medium">
               40% - 69% Score Range
             </span>
           </div>
 
-          <div className="p-5 rounded-2xl bg-[#121522] border border-gray-800/90 shadow-md">
-            <span className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider block">
+          <div className="p-5 rounded-2xl bg-[#141414] border border-[#292929]">
+            <span className="text-[11px] font-semibold text-[#A1A1AA] uppercase tracking-wider block">
               Needs Improvement
             </span>
-            <span className="text-2xl sm:text-3xl font-extrabold text-rose-400 mt-1 block">
+            <span className="text-2xl sm:text-3xl font-extrabold font-heading text-white mt-1 block">
               {weakCount}
             </span>
-            <span className="text-[11px] text-rose-500/80 mt-1 block font-medium">
+            <span className="text-[11px] text-[#A1A1AA] mt-1 block font-medium">
               Roadmap Priority Focus
             </span>
           </div>
 
-          <div className="p-5 rounded-2xl bg-[#121522] border border-gray-800/90 shadow-md">
-            <span className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider block">
+          <div className="p-5 rounded-2xl bg-[#141414] border border-[#292929]">
+            <span className="text-[11px] font-semibold text-[#A1A1AA] uppercase tracking-wider block">
               Not Assessed
             </span>
-            <span className="text-2xl sm:text-3xl font-extrabold text-gray-400 mt-1 block">
+            <span className="text-2xl sm:text-3xl font-extrabold font-heading text-[#A1A1AA] mt-1 block">
               {unassessedCount}
             </span>
-            <span className="text-[11px] text-gray-500 mt-1 block font-medium">
+            <span className="text-[11px] text-[#A1A1AA] mt-1 block font-medium">
               Pending Quiz Evidence
             </span>
           </div>
@@ -319,14 +319,14 @@ export const SkillsPage: React.FC = () => {
         {/* View Tabs & Filter Bar */}
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pt-2">
           {/* Main Tabs */}
-          <div className="flex items-center gap-1.5 p-1 rounded-xl bg-[#141724] border border-gray-800 self-start">
+          <div className="flex items-center gap-1.5 p-1 rounded-xl bg-[#141414] border border-[#292929] self-start">
             <button
               type="button"
               onClick={() => setActiveTab('grid')}
               className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-colors flex items-center gap-1.5 ${
                 activeTab === 'grid'
-                  ? 'bg-indigo-600 text-white shadow-sm'
-                  : 'text-gray-400 hover:text-white'
+                  ? 'bg-white text-black shadow-sm'
+                  : 'text-[#A1A1AA] hover:text-white'
               }`}
             >
               <Grid className="w-3.5 h-3.5" />
@@ -338,8 +338,8 @@ export const SkillsPage: React.FC = () => {
               onClick={() => setActiveTab('radar')}
               className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-colors flex items-center gap-1.5 ${
                 activeTab === 'radar'
-                  ? 'bg-indigo-600 text-white shadow-sm'
-                  : 'text-gray-400 hover:text-white'
+                  ? 'bg-white text-black shadow-sm'
+                  : 'text-[#A1A1AA] hover:text-white'
               }`}
             >
               <RadarIcon className="w-3.5 h-3.5" />
@@ -351,8 +351,8 @@ export const SkillsPage: React.FC = () => {
               onClick={() => setActiveTab('history')}
               className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-colors flex items-center gap-1.5 ${
                 activeTab === 'history'
-                  ? 'bg-indigo-600 text-white shadow-sm'
-                  : 'text-gray-400 hover:text-white'
+                  ? 'bg-white text-black shadow-sm'
+                  : 'text-[#A1A1AA] hover:text-white'
               }`}
             >
               <LineChartIcon className="w-3.5 h-3.5" />
@@ -364,12 +364,12 @@ export const SkillsPage: React.FC = () => {
           {activeTab === 'grid' && (
             <div className="flex flex-wrap items-center gap-3">
               {/* Category Filter Pills */}
-              <div className="flex items-center gap-1 p-1 rounded-xl bg-[#141724] border border-gray-800 text-xs">
+              <div className="flex items-center gap-1 p-1 rounded-xl bg-[#141414] border border-[#292929] text-xs">
                 <button
                   type="button"
                   onClick={() => setFilterCategory('all')}
                   className={`px-2.5 py-1 rounded-lg font-medium transition-colors ${
-                    filterCategory === 'all' ? 'bg-indigo-600 text-white' : 'text-gray-400 hover:text-white'
+                    filterCategory === 'all' ? 'bg-white text-black shadow-sm' : 'text-[#A1A1AA] hover:text-white'
                   }`}
                 >
                   All ({skills.length + unassessedSkills.length})
@@ -378,7 +378,7 @@ export const SkillsPage: React.FC = () => {
                   type="button"
                   onClick={() => setFilterCategory('verified')}
                   className={`px-2.5 py-1 rounded-lg font-medium transition-colors ${
-                    filterCategory === 'verified' ? 'bg-emerald-600 text-white' : 'text-gray-400 hover:text-white'
+                    filterCategory === 'verified' ? 'bg-white text-black shadow-sm' : 'text-[#A1A1AA] hover:text-white'
                   }`}
                 >
                   Mastered ({strongCount})
@@ -387,7 +387,7 @@ export const SkillsPage: React.FC = () => {
                   type="button"
                   onClick={() => setFilterCategory('weak')}
                   className={`px-2.5 py-1 rounded-lg font-medium transition-colors ${
-                    filterCategory === 'weak' ? 'bg-rose-600 text-white' : 'text-gray-400 hover:text-white'
+                    filterCategory === 'weak' ? 'bg-white text-black shadow-sm' : 'text-[#A1A1AA] hover:text-white'
                   }`}
                 >
                   Needs Focus ({weakCount})
@@ -396,7 +396,7 @@ export const SkillsPage: React.FC = () => {
                   type="button"
                   onClick={() => setFilterCategory('unassessed')}
                   className={`px-2.5 py-1 rounded-lg font-medium transition-colors ${
-                    filterCategory === 'unassessed' ? 'bg-gray-700 text-white' : 'text-gray-400 hover:text-white'
+                    filterCategory === 'unassessed' ? 'bg-white text-black shadow-sm' : 'text-[#A1A1AA] hover:text-white'
                   }`}
                 >
                   Not Assessed ({unassessedCount})
@@ -405,13 +405,13 @@ export const SkillsPage: React.FC = () => {
 
               {/* Search Bar */}
               <div className="relative">
-                <Search className="w-3.5 h-3.5 text-gray-500 absolute left-3 top-1/2 -translate-y-1/2" />
+                <Search className="w-3.5 h-3.5 text-[#A1A1AA] absolute left-3 top-1/2 -translate-y-1/2" />
                 <input
                   type="text"
                   placeholder="Search skill..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-8 pr-3 py-1.5 bg-[#141724] border border-gray-800 rounded-xl text-xs text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500 w-36 sm:w-44"
+                  className="pl-8 pr-3 py-1.5 bg-[#171717] border border-[#292929] rounded-xl text-xs text-white placeholder-[#A1A1AA] focus:outline-none focus:border-white w-36 sm:w-44"
                 />
               </div>
 
@@ -419,11 +419,11 @@ export const SkillsPage: React.FC = () => {
               <select
                 value={sortBy}
                 onChange={(e: any) => setSortBy(e.target.value)}
-                className="px-3 py-1.5 bg-[#141724] border border-gray-800 rounded-xl text-xs font-medium text-white focus:outline-none focus:border-indigo-500 cursor-pointer"
+                className="px-3 py-1.5 bg-[#171717] border border-[#292929] rounded-xl text-xs font-medium text-white focus:outline-none focus:border-white cursor-pointer"
               >
-                <option value="score">Sort: Score</option>
-                <option value="priority">Sort: Priority</option>
-                <option value="name">Sort: Name (A-Z)</option>
+                <option value="score" className="bg-[#141414]">Sort: Score</option>
+                <option value="priority" className="bg-[#141414]">Sort: Priority</option>
+                <option value="name" className="bg-[#141414]">Sort: Name (A-Z)</option>
               </select>
             </div>
           )}
@@ -440,42 +440,42 @@ export const SkillsPage: React.FC = () => {
                 <div
                   key={sk.id || sk.skill_name}
                   onClick={() => handleOpenSkillModal(sk)}
-                  className="p-5 rounded-3xl bg-[#121522] border border-gray-800 hover:border-indigo-500/50 shadow-lg backdrop-blur-xl flex flex-col justify-between transition-all cursor-pointer group hover:shadow-indigo-950/40 hover:-translate-y-0.5"
+                  className="p-5 rounded-3xl bg-[#141414] border border-[#292929] hover:border-neutral-500 shadow-sm flex flex-col justify-between transition-all cursor-pointer group hover:-translate-y-0.5"
                 >
                   <div>
                     {/* Top Badges */}
                     <div className="flex items-center justify-between mb-3">
                       {isNotAssessed ? (
-                        <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-gray-800 text-gray-400 border border-gray-700">
+                        <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#171717] text-[#A1A1AA] border border-[#292929]">
                           NOT ASSESSED
                         </span>
                       ) : scoreVal! >= 70 ? (
-                        <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+                        <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-white/10 text-white border border-white/20">
                           Mastered
                         </span>
                       ) : scoreVal! >= 40 ? (
-                        <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-amber-500/15 text-amber-400 border border-amber-500/30">
+                        <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-white/10 text-white border border-white/20">
                           In Progress
                         </span>
                       ) : (
-                        <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-rose-500/15 text-rose-400 border border-rose-500/30">
+                        <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-white/10 text-white border border-white/20">
                           Needs Focus
                         </span>
                       )}
 
-                      <span className="text-[10px] font-semibold text-gray-400 capitalize px-2 py-0.5 rounded bg-gray-900 border border-gray-800">
+                      <span className="text-[10px] font-semibold text-[#A1A1AA] capitalize px-2 py-0.5 rounded bg-[#171717] border border-[#292929]">
                         {sk.learning_priority || 'medium'} priority
                       </span>
                     </div>
 
                     {/* Title & Score */}
                     <div className="flex items-baseline justify-between mb-2">
-                      <h3 className="text-base font-bold text-white tracking-tight group-hover:text-indigo-300 transition-colors">
+                      <h3 className="text-base font-bold font-heading text-white tracking-tight group-hover:text-neutral-300 transition-colors">
                         {sk.skill_name}
                       </h3>
-                      <span className="text-lg font-extrabold text-white">
+                      <span className="text-lg font-extrabold font-heading text-white">
                         {isNotAssessed ? (
-                          <span className="text-xs text-gray-500 font-semibold uppercase">Pending</span>
+                          <span className="text-xs text-[#A1A1AA] font-semibold uppercase">Pending</span>
                         ) : (
                           `${scoreVal}%`
                         )}
@@ -483,16 +483,12 @@ export const SkillsPage: React.FC = () => {
                     </div>
 
                     {/* Progress Bar */}
-                    <div className="w-full bg-gray-800 h-2 rounded-full overflow-hidden mb-4">
+                    <div className="w-full bg-[#171717] h-2 rounded-full overflow-hidden border border-[#292929] mb-4">
                       <div
                         className={`h-full rounded-full transition-all duration-500 ${
                           isNotAssessed
                             ? 'bg-transparent'
-                            : scoreVal! >= 70
-                            ? 'bg-emerald-500'
-                            : scoreVal! >= 40
-                            ? 'bg-amber-500'
-                            : 'bg-rose-500'
+                            : 'bg-white'
                         }`}
                         style={{ width: isNotAssessed ? '0%' : `${scoreVal}%` }}
                       />
@@ -501,14 +497,14 @@ export const SkillsPage: React.FC = () => {
                     {/* Tags / Weakness Highlights */}
                     {sk.weakness_areas && sk.weakness_areas.length > 0 ? (
                       <div className="space-y-1 mb-2">
-                        <span className="text-[10px] uppercase font-semibold text-gray-500">
+                        <span className="text-[10px] uppercase font-semibold text-[#A1A1AA]">
                           Target Focus Areas:
                         </span>
                         <div className="flex flex-wrap gap-1">
                           {sk.weakness_areas.slice(0, 2).map((w, idx) => (
                             <span
                               key={idx}
-                              className="text-[10px] px-2 py-0.5 rounded bg-rose-950/40 text-rose-300 border border-rose-900/40 truncate max-w-[140px]"
+                              className="text-[10px] px-2 py-0.5 rounded bg-[#171717] text-white border border-[#292929] truncate max-w-[140px]"
                             >
                               {w}
                             </span>
@@ -516,22 +512,22 @@ export const SkillsPage: React.FC = () => {
                         </div>
                       </div>
                     ) : isNotAssessed ? (
-                      <p className="text-[11px] text-gray-500 mb-2">
+                      <p className="text-[11px] text-[#A1A1AA] mb-2">
                         Required competency for your target career role.
                       </p>
                     ) : (
-                      <p className="text-[11px] text-gray-500 mb-2">
+                      <p className="text-[11px] text-[#A1A1AA] mb-2">
                         Solid foundational proficiency demonstrated in assessments.
                       </p>
                     )}
                   </div>
 
-                  <div className="pt-3 mt-3 border-t border-gray-800/80 flex items-center justify-between text-[11px] text-gray-500">
+                  <div className="pt-3 mt-3 border-t border-[#292929] flex items-center justify-between text-[11px] text-[#A1A1AA]">
                     <span className="flex items-center gap-1">
-                      <ShieldCheck className="w-3.5 h-3.5 text-indigo-400" />
+                      <ShieldCheck className="w-3.5 h-3.5 text-white" />
                       {isNotAssessed ? 'Self-declared' : 'Verified Evidence'}
                     </span>
-                    <span className="text-indigo-400 group-hover:translate-x-0.5 transition-transform font-medium">
+                    <span className="text-white group-hover:translate-x-0.5 transition-transform font-medium">
                       Inspect &rarr;
                     </span>
                   </div>
@@ -543,10 +539,10 @@ export const SkillsPage: React.FC = () => {
 
         {/* TAB 2: Radar Chart */}
         {activeTab === 'radar' && (
-          <div className="p-6 sm:p-8 rounded-3xl bg-[#121522] border border-gray-800 shadow-xl">
+          <div className="p-6 sm:p-8 rounded-3xl bg-[#141414] border border-[#292929]">
             <div className="max-w-2xl mx-auto text-center mb-6">
-              <h3 className="text-lg font-bold text-white">Spider-Web Competency Radar</h3>
-              <p className="text-xs text-gray-400 mt-1">
+              <h3 className="text-lg font-bold font-heading text-white">Competency Radar Calibration</h3>
+              <p className="text-xs text-[#A1A1AA] mt-1">
                 Visualizing verified proficiency scores across evaluated technical domains.
               </p>
             </div>
@@ -555,20 +551,20 @@ export const SkillsPage: React.FC = () => {
               <div className="w-full h-80 sm:h-96">
                 <ResponsiveContainer width="100%" height="100%">
                   <RadarChart cx="50%" cy="50%" outerRadius="75%" data={radarData}>
-                    <PolarGrid stroke="#2a2e42" />
-                    <PolarAngleAxis dataKey="skill" tick={{ fill: '#9ca3af', fontSize: 12 }} />
-                    <PolarRadiusAxis angle={30} domain={[0, 100]} tick={{ fill: '#6b7280', fontSize: 10 }} />
+                    <PolarGrid stroke="#292929" />
+                    <PolarAngleAxis dataKey="skill" tick={{ fill: '#A1A1AA', fontSize: 12 }} />
+                    <PolarRadiusAxis angle={30} domain={[0, 100]} tick={{ fill: '#71717A', fontSize: 10 }} />
                     <Radar
                       name="Proficiency Score"
                       dataKey="score"
-                      stroke="#6366f1"
-                      fill="#6366f1"
-                      fillOpacity={0.45}
+                      stroke="#ffffff"
+                      fill="#ffffff"
+                      fillOpacity={0.25}
                     />
                     <Tooltip
                       contentStyle={{
-                        backgroundColor: '#161a29',
-                        borderColor: '#374151',
+                        backgroundColor: '#141414',
+                        borderColor: '#292929',
                         borderRadius: '0.75rem',
                         color: '#fff',
                         fontSize: '12px',
@@ -578,32 +574,32 @@ export const SkillsPage: React.FC = () => {
                 </ResponsiveContainer>
               </div>
             ) : (
-              <p className="text-xs text-gray-500 text-center py-10">No evaluated skills to display on radar.</p>
+              <p className="text-xs text-[#A1A1AA] text-center py-10">No evaluated skills to display on radar.</p>
             )}
           </div>
         )}
 
         {/* TAB 3: Historical Progression Line Chart */}
         {activeTab === 'history' && (
-          <div className="p-6 sm:p-8 rounded-3xl bg-[#121522] border border-gray-800 shadow-xl space-y-6">
+          <div className="p-6 sm:p-8 rounded-3xl bg-[#141414] border border-[#292929] space-y-6">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div>
-                <h3 className="text-lg font-bold text-white">Skill Proficiency Velocity</h3>
-                <p className="text-xs text-gray-400 mt-0.5">
+                <h3 className="text-lg font-bold font-heading text-white">Skill Proficiency Velocity</h3>
+                <p className="text-xs text-[#A1A1AA] mt-0.5">
                   Chronological progression snapshots captured after each assessment session.
                 </p>
               </div>
 
               {/* Skill Selector for History */}
               <div className="flex items-center gap-2">
-                <span className="text-xs text-gray-400">Select Skill:</span>
+                <span className="text-xs text-[#A1A1AA]">Select Skill:</span>
                 <select
                   value={historySkillName}
                   onChange={(e) => setHistorySkillName(e.target.value)}
-                  className="px-3.5 py-2 bg-[#171b29] border border-gray-800 rounded-xl text-xs font-semibold text-indigo-300 focus:outline-none focus:border-indigo-400 cursor-pointer"
+                  className="px-3.5 py-2 bg-[#171717] border border-[#292929] rounded-xl text-xs font-semibold text-white focus:outline-none focus:border-white cursor-pointer"
                 >
                   {skills.map((s) => (
-                    <option key={s.id || s.skill_name} value={s.skill_name}>
+                    <option key={s.id || s.skill_name} value={s.skill_name} className="bg-[#141414]">
                       {s.skill_name} ({s.score_percentage || 0}%)
                     </option>
                   ))}
@@ -615,13 +611,13 @@ export const SkillsPage: React.FC = () => {
             <div className="w-full h-72">
               <ResponsiveContainer width="100%" height="100%">
                 <LineChart data={historyChartData}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#252a3b" />
-                  <XAxis dataKey="date" stroke="#6b7280" tick={{ fontSize: 11 }} />
-                  <YAxis domain={[0, 100]} stroke="#6b7280" tick={{ fontSize: 11 }} />
+                  <CartesianGrid strokeDasharray="3 3" stroke="#292929" />
+                  <XAxis dataKey="date" stroke="#71717A" tick={{ fontSize: 11 }} />
+                  <YAxis domain={[0, 100]} stroke="#71717A" tick={{ fontSize: 11 }} />
                   <Tooltip
                     contentStyle={{
-                      backgroundColor: '#161a29',
-                      borderColor: '#374151',
+                      backgroundColor: '#141414',
+                      borderColor: '#292929',
                       borderRadius: '0.75rem',
                       color: '#fff',
                       fontSize: '12px',
@@ -630,10 +626,10 @@ export const SkillsPage: React.FC = () => {
                   <Line
                     type="monotone"
                     dataKey="score"
-                    stroke="#6366f1"
-                    strokeWidth={3}
-                    dot={{ fill: '#8b5cf6', r: 5 }}
-                    activeDot={{ r: 7 }}
+                    stroke="#ffffff"
+                    strokeWidth={2.5}
+                    dot={{ fill: '#ffffff', r: 4 }}
+                    activeDot={{ r: 6 }}
                   />
                 </LineChart>
               </ResponsiveContainer>
@@ -644,11 +640,11 @@ export const SkillsPage: React.FC = () => {
         {/* Skill Detail Modal / Drawer */}
         {selectedSkill && (
           <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 animate-fade-in">
-            <div className="max-w-2xl w-full bg-[#121522] border border-gray-800 rounded-3xl p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto space-y-6">
+            <div className="max-w-2xl w-full bg-[#141414] border border-[#292929] rounded-3xl p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto space-y-6">
               {/* Close Button */}
               <button
                 onClick={() => setSelectedSkill(null)}
-                className="absolute top-6 right-6 p-2 rounded-xl bg-gray-800/60 hover:bg-gray-800 text-gray-400 hover:text-white transition-colors"
+                className="absolute top-6 right-6 p-2 rounded-xl bg-[#171717] border border-[#292929] text-[#A1A1AA] hover:text-white transition-colors"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -656,36 +652,36 @@ export const SkillsPage: React.FC = () => {
               {/* Modal Header */}
               <div>
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-indigo-500/15 text-indigo-300 border border-indigo-500/30">
+                  <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-white/10 text-white border border-white/20">
                     {selectedSkill.is_verified ? 'Verified Skill Evaluation' : 'Unverified Career Requirement'}
                   </span>
-                  <span className="text-[10px] font-semibold text-gray-400 capitalize px-2 py-0.5 rounded bg-gray-800">
+                  <span className="text-[10px] font-semibold text-[#A1A1AA] capitalize px-2 py-0.5 rounded bg-[#171717] border border-[#292929]">
                     {selectedSkill.learning_priority || 'medium'} priority
                   </span>
                 </div>
-                <h2 className="text-2xl font-extrabold text-white">{selectedSkill.skill_name}</h2>
-                <p className="text-xs text-gray-400 mt-1">
+                <h2 className="text-2xl font-extrabold font-heading text-white">{selectedSkill.skill_name}</h2>
+                <p className="text-xs text-[#A1A1AA] mt-1">
                   Full evaluation audit log, question telemetry, and confidence metric.
                 </p>
               </div>
 
               {/* Performance Stats Cards */}
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                <div className="p-3.5 rounded-2xl bg-[#171b2b] border border-gray-800">
-                  <span className="text-[10px] font-semibold uppercase text-gray-400">Current Rating</span>
-                  <p className="text-xl font-extrabold text-white mt-1">
+                <div className="p-3.5 rounded-2xl bg-[#171717] border border-[#292929]">
+                  <span className="text-[10px] font-semibold uppercase text-[#A1A1AA]">Current Rating</span>
+                  <p className="text-xl font-extrabold font-heading text-white mt-1">
                     {selectedSkill.score_percentage !== null ? `${Math.round(selectedSkill.score_percentage)}%` : 'NOT ASSESSED'}
                   </p>
                 </div>
-                <div className="p-3.5 rounded-2xl bg-[#171b2b] border border-gray-800">
-                  <span className="text-[10px] font-semibold uppercase text-gray-400">Proficiency Tier</span>
-                  <p className="text-xl font-extrabold text-indigo-400 capitalize mt-1">
+                <div className="p-3.5 rounded-2xl bg-[#171717] border border-[#292929]">
+                  <span className="text-[10px] font-semibold uppercase text-[#A1A1AA]">Proficiency Tier</span>
+                  <p className="text-xl font-extrabold font-heading text-white capitalize mt-1">
                     {selectedSkill.proficiency_level || 'Beginner'}
                   </p>
                 </div>
-                <div className="p-3.5 rounded-2xl bg-[#171b2b] border border-gray-800 col-span-2 sm:col-span-1">
-                  <span className="text-[10px] font-semibold uppercase text-gray-400">Confidence Level</span>
-                  <p className="text-xl font-extrabold text-emerald-400 mt-1">
+                <div className="p-3.5 rounded-2xl bg-[#171717] border border-[#292929] col-span-2 sm:col-span-1">
+                  <span className="text-[10px] font-semibold uppercase text-[#A1A1AA]">Confidence Level</span>
+                  <p className="text-xl font-extrabold font-heading text-white mt-1">
                     {selectedSkill.is_verified ? '94% High' : '0% (No Quiz)'}
                   </p>
                 </div>
@@ -694,13 +690,13 @@ export const SkillsPage: React.FC = () => {
               {/* Strengths & Weakness Areas */}
               <div className="space-y-3">
                 {selectedSkill.strength_areas && selectedSkill.strength_areas.length > 0 && (
-                  <div className="p-4 rounded-2xl bg-emerald-950/20 border border-emerald-900/30">
-                    <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider block mb-2 flex items-center gap-1.5">
-                      <CheckCircle2 className="w-3.5 h-3.5" /> Demonstrated Strengths
+                  <div className="p-4 rounded-2xl bg-[#171717] border border-[#292929]">
+                    <span className="text-xs font-bold text-white uppercase tracking-wider block mb-2 flex items-center gap-1.5">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-white" /> Demonstrated Strengths
                     </span>
                     <div className="flex flex-wrap gap-1.5">
                       {selectedSkill.strength_areas.map((st, sIdx) => (
-                        <span key={sIdx} className="text-xs px-2.5 py-1 rounded-lg bg-emerald-900/30 text-emerald-300 border border-emerald-800/40">
+                        <span key={sIdx} className="text-xs px-2.5 py-1 rounded-lg bg-[#141414] text-white border border-[#292929]">
                           {st}
                         </span>
                       ))}
@@ -709,13 +705,13 @@ export const SkillsPage: React.FC = () => {
                 )}
 
                 {selectedSkill.weakness_areas && selectedSkill.weakness_areas.length > 0 && (
-                  <div className="p-4 rounded-2xl bg-rose-950/20 border border-rose-900/30">
-                    <span className="text-xs font-bold text-rose-400 uppercase tracking-wider block mb-2 flex items-center gap-1.5">
-                      <AlertCircle className="w-3.5 h-3.5" /> Identified Weaknesses & Gaps
+                  <div className="p-4 rounded-2xl bg-[#171717] border border-[#292929]">
+                    <span className="text-xs font-bold text-white uppercase tracking-wider block mb-2 flex items-center gap-1.5">
+                      <AlertCircle className="w-3.5 h-3.5 text-white" /> Identified Weaknesses & Gaps
                     </span>
                     <div className="flex flex-wrap gap-1.5">
                       {selectedSkill.weakness_areas.map((wk, wIdx) => (
-                        <span key={wIdx} className="text-xs px-2.5 py-1 rounded-lg bg-rose-900/30 text-rose-300 border border-rose-800/40">
+                        <span key={wIdx} className="text-xs px-2.5 py-1 rounded-lg bg-[#141414] text-white border border-[#292929]">
                           {wk}
                         </span>
                       ))}
@@ -725,20 +721,20 @@ export const SkillsPage: React.FC = () => {
               </div>
 
               {/* Evidence Artifacts */}
-              <div className="p-4 rounded-2xl bg-[#171b2b] border border-gray-800 space-y-2">
-                <span className="text-xs font-bold text-gray-300 uppercase tracking-wider flex items-center gap-1.5 mb-2">
-                  <FileText className="w-3.5 h-3.5 text-indigo-400" /> Assessment Evidence Artifacts
+              <div className="p-4 rounded-2xl bg-[#171717] border border-[#292929] space-y-2">
+                <span className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5 mb-2">
+                  <FileText className="w-3.5 h-3.5 text-white" /> Assessment Evidence Artifacts
                 </span>
                 {selectedSkill.evidence && selectedSkill.evidence.length > 0 ? (
                   <div className="space-y-1.5">
                     {selectedSkill.evidence.map((ev, evIdx) => (
-                      <div key={evIdx} className="text-xs text-gray-300 p-2 rounded-lg bg-[#121522] border border-gray-800 font-mono">
+                      <div key={evIdx} className="text-xs text-[#A1A1AA] p-2 rounded-lg bg-[#141414] border border-[#292929] font-mono">
                         {ev}
                       </div>
                     ))}
                   </div>
                 ) : (
-                  <p className="text-xs text-gray-500 py-2">
+                  <p className="text-xs text-[#A1A1AA] py-2">
                     No individual challenge evidence recorded yet. Take an assessment to register telemetry.
                   </p>
                 )}
@@ -746,16 +742,16 @@ export const SkillsPage: React.FC = () => {
 
               {/* Chronological Snapshot Progression */}
               {selectedSkillHistory.length > 0 && (
-                <div className="p-4 rounded-2xl bg-[#171b2b] border border-gray-800 space-y-2">
-                  <span className="text-xs font-bold text-gray-300 uppercase tracking-wider flex items-center gap-1.5 mb-2">
-                    <Clock className="w-3.5 h-3.5 text-indigo-400" /> Historical Calibration Snapshots
+                <div className="p-4 rounded-2xl bg-[#171717] border border-[#292929] space-y-2">
+                  <span className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5 mb-2">
+                    <Clock className="w-3.5 h-3.5 text-white" /> Historical Calibration Snapshots
                   </span>
                   <div className="space-y-1.5">
                     {selectedSkillHistory.map((h, hIdx) => (
-                      <div key={hIdx} className="flex items-center justify-between text-xs p-2 rounded-lg bg-[#121522] border border-gray-800">
-                        <span className="text-gray-400">{new Date(h.recorded_at).toLocaleDateString()}</span>
-                        <span className="text-gray-300 capitalize">{h.snapshot_reason?.replace('_', ' ') || 'Evaluation'}</span>
-                        <span className="font-bold text-indigo-400">{Math.round(h.score_percentage)}%</span>
+                      <div key={hIdx} className="flex items-center justify-between text-xs p-2 rounded-lg bg-[#141414] border border-[#292929]">
+                        <span className="text-[#A1A1AA]">{new Date(h.recorded_at).toLocaleDateString()}</span>
+                        <span className="text-white capitalize">{h.snapshot_reason?.replace('_', ' ') || 'Evaluation'}</span>
+                        <span className="font-bold text-white">{Math.round(h.score_percentage)}%</span>
                       </div>
                     ))}
                   </div>
@@ -763,11 +759,11 @@ export const SkillsPage: React.FC = () => {
               )}
 
               {/* Action Buttons */}
-              <div className="flex items-center justify-end gap-3 pt-3 border-t border-gray-800">
+              <div className="flex items-center justify-end gap-3 pt-3 border-t border-[#292929]">
                 <button
                   type="button"
                   onClick={() => setSelectedSkill(null)}
-                  className="px-4 py-2.5 rounded-xl bg-gray-800 hover:bg-gray-700 text-gray-300 text-xs font-semibold"
+                  className="px-4 py-2.5 rounded-xl bg-[#171717] hover:bg-[#222222] border border-[#292929] text-[#A1A1AA] text-xs font-semibold"
                 >
                   Close
                 </button>
@@ -777,7 +773,7 @@ export const SkillsPage: React.FC = () => {
                     setSelectedSkill(null);
                     navigate('/assessment');
                   }}
-                  className="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold flex items-center gap-2 shadow-lg shadow-indigo-600/30"
+                  className="px-5 py-2.5 rounded-xl bg-white hover:bg-neutral-200 text-black text-xs font-semibold flex items-center gap-2 shadow-sm"
                 >
                   <span>Practice {selectedSkill.skill_name} Now</span>
                   <ArrowRight className="w-3.5 h-3.5" />

@@ -126,25 +126,25 @@ export function AppLayout() {
     : 'U';
 
   const sidebarContent = (
-    <div className="flex flex-col h-full bg-surface-100 border-r border-surface-border">
+    <div className="flex flex-col h-full bg-[#171717] border-r border-[#292929]">
       {/* Brand Logo Header */}
-      <div className="h-16 flex items-center justify-between px-5 border-b border-surface-border">
+      <div className="h-16 flex items-center justify-between px-5 border-b border-[#292929]">
         <NavLink to="/dashboard" className="flex items-center gap-2.5">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-600 to-violet-500 flex items-center justify-center shadow-brand text-white">
-            <BrainCircuit className="w-5 h-5" />
+          <div className="w-8 h-8 rounded-lg bg-white flex items-center justify-center text-black">
+            <BrainCircuit className="w-4 h-4" />
           </div>
           <div>
-            <div className="font-display font-bold text-lg text-white leading-tight flex items-center gap-1.5">
+            <div className="font-heading font-extrabold text-base text-white leading-tight flex items-center gap-1.5">
               <span>SkillPath</span>
-              <span className="text-brand-400 font-extrabold">AI</span>
+              <span className="text-[#A1A1AA]">AI</span>
             </div>
-            <span className="text-[10px] text-gray-400 uppercase tracking-widest font-mono">
+            <span className="text-[10px] text-[#A1A1AA] uppercase tracking-widest font-mono">
               Intelligence
             </span>
           </div>
         </NavLink>
         {isDemo && (
-          <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-amber-500/15 text-amber-300 border border-amber-500/30">
+          <span className="px-2 py-0.5 rounded text-[10px] font-mono font-medium bg-[#141414] text-[#A1A1AA] border border-[#292929]">
             DEMO
           </span>
         )}
@@ -154,7 +154,7 @@ export function AppLayout() {
       <div className="flex-1 overflow-y-auto px-3.5 py-4 space-y-6">
         {navSections.map((section) => (
           <div key={section.title}>
-            <div className="px-3 mb-2 text-[11px] font-semibold tracking-wider text-gray-400 uppercase font-mono">
+            <div className="px-3 mb-2 text-[11px] font-medium tracking-wider text-[#A1A1AA] uppercase font-mono">
               {section.title}
             </div>
             <div className="space-y-1">
@@ -182,17 +182,17 @@ export function AppLayout() {
       </div>
 
       {/* User Info & Logout Footer */}
-      <div className="p-3.5 border-t border-surface-border bg-surface-DEFAULT/50">
-        <div className="flex items-center justify-between gap-3 p-2 rounded-xl bg-surface-200/60 border border-surface-border">
+      <div className="p-3.5 border-t border-[#292929] bg-[#141414]">
+        <div className="flex items-center justify-between gap-3 p-2 rounded-xl bg-[#171717] border border-[#292929]">
           <div className="flex items-center gap-2.5 min-w-0">
-            <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-brand-500 to-violet-600 flex items-center justify-center text-xs font-bold text-white shrink-0">
+            <div className="w-8 h-8 rounded-lg bg-white text-black flex items-center justify-center text-xs font-bold shrink-0">
               {userInitials}
             </div>
             <div className="min-w-0">
               <p className="text-xs font-semibold text-white truncate">
                 {user?.full_name || 'Learner'}
               </p>
-              <p className="text-[11px] text-gray-400 truncate">
+              <p className="text-[11px] text-[#A1A1AA] truncate">
                 {user?.email || 'learner@skillpath.ai'}
               </p>
             </div>
@@ -200,7 +200,7 @@ export function AppLayout() {
           <button
             onClick={handleLogout}
             title="Log Out"
-            className="p-1.5 rounded-lg text-gray-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors"
+            className="p-1.5 rounded-lg text-[#A1A1AA] hover:text-white hover:bg-[#202020] transition-colors"
           >
             <LogOut className="w-4 h-4" />
           </button>
@@ -210,7 +210,7 @@ export function AppLayout() {
   );
 
   return (
-    <div className="flex h-screen bg-surface-DEFAULT text-gray-100 overflow-hidden">
+    <div className="flex h-screen bg-[#090909] text-white overflow-hidden">
       {/* Desktop Sidebar */}
       <aside className="hidden lg:flex lg:w-64 lg:flex-col shrink-0">
         {sidebarContent}
@@ -220,7 +220,7 @@ export function AppLayout() {
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-50 lg:hidden">
           <div
-            className="fixed inset-0 bg-black/70 backdrop-blur-sm transition-opacity"
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm transition-opacity"
             onClick={() => setMobileMenuOpen(false)}
           />
           <div className="fixed inset-y-0 left-0 w-72 max-w-full z-50">
@@ -232,22 +232,22 @@ export function AppLayout() {
       {/* Main Content Area */}
       <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
         {/* Top Header */}
-        <header className="h-16 bg-surface-100/90 backdrop-blur border-b border-surface-border flex items-center justify-between px-4 sm:px-6 shrink-0 z-10">
+        <header className="h-16 bg-[#090909]/90 backdrop-blur border-b border-[#292929] flex items-center justify-between px-4 sm:px-6 shrink-0 z-10">
           <div className="flex items-center gap-3">
             <button
               type="button"
               onClick={() => setMobileMenuOpen(true)}
-              className="lg:hidden p-2 rounded-xl bg-surface-200 text-gray-300 hover:text-white"
+              className="lg:hidden p-2 rounded-xl bg-[#171717] border border-[#292929] text-[#A1A1AA] hover:text-white"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
-            <h1 className="text-lg font-semibold text-white tracking-tight">{getPageTitle()}</h1>
+            <h1 className="text-lg font-heading font-bold text-white tracking-tight">{getPageTitle()}</h1>
           </div>
 
           <div className="flex items-center gap-3">
             {isDemo && (
-              <div className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-amber-500/10 text-amber-300 border border-amber-500/30">
-                <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+              <div className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-[#141414] text-[#A1A1AA] border border-[#292929]">
+                <Sparkles className="w-3.5 h-3.5 text-white" />
                 <span>Demo Simulation Mode</span>
               </div>
             )}
@@ -255,15 +255,15 @@ export function AppLayout() {
             <button
               type="button"
               title="Notifications"
-              className="p-2 rounded-xl bg-surface-200/80 hover:bg-surface-200 text-gray-300 hover:text-white border border-surface-border transition-colors relative"
+              className="p-2 rounded-xl bg-[#171717] hover:bg-[#202020] text-[#A1A1AA] hover:text-white border border-[#292929] transition-colors relative"
             >
               <Bell className="w-4 h-4" />
-              <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-brand-500 ring-2 ring-surface-100" />
+              <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-white ring-2 ring-[#171717]" />
             </button>
 
             <NavLink
               to="/profile"
-              className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-surface-200/60 hover:bg-surface-200 border border-surface-border text-xs font-medium text-gray-200 transition-colors"
+              className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[#171717] hover:bg-[#202020] border border-[#292929] text-xs font-medium text-white transition-colors"
             >
               <span>Profile</span>
             </NavLink>
@@ -271,7 +271,7 @@ export function AppLayout() {
         </header>
 
         {/* Scrollable Main Content Slot */}
-        <main className="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8 bg-surface-DEFAULT">
+        <main className="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8 bg-[#090909]">
           <div className="max-w-7xl mx-auto">
             <Outlet />
           </div>

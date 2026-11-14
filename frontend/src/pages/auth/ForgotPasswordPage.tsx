@@ -48,56 +48,52 @@ export const ForgotPasswordPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen w-full bg-[#0b0d13] text-gray-100 flex items-center justify-center p-4 sm:p-6 relative overflow-hidden font-sans">
-      {/* Background radial glows */}
-      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-indigo-600/15 blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-violet-600/15 blur-[140px] pointer-events-none" />
-
+    <div className="min-h-screen w-full bg-[#090909] text-white flex items-center justify-center p-4 sm:p-6 relative overflow-hidden font-sans selection:bg-white selection:text-black">
       <div className="max-w-md w-full z-10">
         {/* Brand Header */}
         <div className="text-center mb-8">
           <Link to="/" className="inline-flex items-center gap-3 group">
-            <div className="h-11 w-11 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-violet-500 flex items-center justify-center shadow-lg shadow-indigo-500/25 group-hover:scale-105 transition-transform">
-              <Brain className="h-6 w-6 text-white" />
+            <div className="h-10 w-10 rounded-xl bg-white flex items-center justify-center text-black group-hover:scale-105 transition-transform shadow-sm">
+              <Brain className="h-5 w-5" />
             </div>
             <div className="text-left">
-              <span className="text-xl font-bold tracking-tight text-white flex items-center gap-1">
-                SkillPath <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-violet-400">AI</span>
+              <span className="text-xl font-heading font-extrabold tracking-tight text-white flex items-center gap-1">
+                SkillPath <span className="text-[#A1A1AA]">AI</span>
               </span>
-              <span className="block text-[10px] text-gray-400 -mt-1 font-mono tracking-wider">RECOVERY PORTAL</span>
+              <span className="block text-[10px] text-[#A1A1AA] -mt-1 font-mono tracking-wider">RECOVERY PORTAL</span>
             </div>
           </Link>
         </div>
 
         {/* Card */}
-        <div className="bg-[#121522]/90 border border-gray-800/80 rounded-2xl p-7 sm:p-9 shadow-2xl backdrop-blur-xl relative">
+        <div className="bg-[#141414] border border-[#292929] rounded-2xl p-7 sm:p-9 shadow-sm relative">
           {!isSubmitted ? (
             <>
-              <div className="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 flex items-center justify-center mb-5">
-                <KeyRound className="w-6 h-6" />
+              <div className="w-10 h-10 rounded-xl bg-white/5 border border-[#292929] text-white flex items-center justify-center mb-5">
+                <KeyRound className="w-5 h-5" />
               </div>
 
-              <h1 className="text-2xl font-bold text-white tracking-tight">Reset your password</h1>
-              <p className="text-sm text-gray-400 mt-2">
+              <h1 className="text-2xl font-heading font-bold text-white tracking-tight">Reset your password</h1>
+              <p className="text-sm text-[#A1A1AA] mt-2">
                 Enter your registered email address and we will send you a secure link to reset your account password.
               </p>
 
               <form onSubmit={handleSubmit(onSubmit)} className="mt-6 space-y-5">
                 <div>
-                  <label className="block text-xs font-medium text-gray-300 mb-1.5 uppercase tracking-wider">
+                  <label className="block text-xs font-mono font-medium text-[#A1A1AA] mb-1.5 uppercase tracking-wider">
                     Account Email
                   </label>
                   <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-500">
+                    <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#71717A]">
                       <Mail className="h-4 w-4" />
                     </div>
                     <input
                       type="email"
                       {...register('email')}
                       placeholder="alex@company.com"
-                      className={`w-full pl-10 pr-4 py-2.5 bg-[#171b29] border ${
-                        errors.email ? 'border-red-500/70 focus:border-red-500' : 'border-gray-800 focus:border-indigo-500'
-                      } rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 transition-all`}
+                      className={`w-full pl-10 pr-4 py-2.5 bg-[#171717] border ${
+                        errors.email ? 'border-red-500/70 focus:border-red-500' : 'border-[#292929] focus:border-white'
+                      } rounded-xl text-sm text-white placeholder-[#71717A] focus:outline-none focus:ring-1 focus:ring-white/20 transition-all`}
                     />
                   </div>
                   {errors.email && (
@@ -108,11 +104,11 @@ export const ForgotPasswordPage: React.FC = () => {
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-indigo-600 via-indigo-500 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white font-medium text-sm shadow-lg shadow-indigo-600/30 hover:shadow-indigo-600/50 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all duration-200 flex items-center justify-center gap-2 group disabled:opacity-70 disabled:cursor-not-allowed"
+                  className="w-full py-3 px-4 rounded-xl bg-white hover:bg-neutral-200 text-black font-semibold text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-white/40 transition-all duration-200 flex items-center justify-center gap-2 group disabled:opacity-70 disabled:cursor-not-allowed"
                 >
                   {isLoading ? (
                     <>
-                      <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                      <div className="w-4 h-4 border-2 border-black/30 border-t-black rounded-full animate-spin" />
                       <span>Sending link...</span>
                     </>
                   ) : (
@@ -126,8 +122,8 @@ export const ForgotPasswordPage: React.FC = () => {
             </>
           ) : (
             <div className="text-center py-4">
-              <div className="w-14 h-14 mx-auto rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center mb-5 animate-pulse-soft">
-                <Mail className="w-7 h-7" />
+              <div className="w-12 h-12 mx-auto rounded-full bg-white/5 border border-[#292929] text-white flex items-center justify-center mb-5">
+                <Mail className="w-6 h-6" />
               </div>
 
               <h2 className="text-xl font-bold text-white tracking-tight">Check your inbox</h2>

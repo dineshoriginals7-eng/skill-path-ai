@@ -27,14 +27,14 @@ export function Card({
   };
 
   const hoverStyle = hover
-    ? 'transition-all duration-300 hover:-translate-y-1 hover:border-brand-500/40 hover:shadow-brand cursor-pointer'
+    ? 'transition-all duration-200 hover:border-neutral-500 hover:bg-[#181818] cursor-pointer'
     : '';
 
-  const glowStyle = glow ? 'shadow-glow-sm border-brand-500/30' : 'border-surface-border';
+  const glowStyle = glow ? 'border-neutral-500 shadow-sm' : 'border-[#292929]';
 
   return (
     <div
-      className={`bg-surface-card border rounded-2xl shadow-card text-gray-100 ${paddingStyles[padding]} ${hoverStyle} ${glowStyle} ${className}`}
+      className={`bg-[#141414] border rounded-2xl shadow-sm text-white ${paddingStyles[padding]} ${hoverStyle} ${glowStyle} ${className}`}
       {...rest}
     >
       {children}
@@ -75,13 +75,13 @@ export function CardHeader({
     <div className={`flex items-start justify-between gap-4 mb-4 ${className}`} {...rest}>
       <div className="flex items-start gap-3">
         {icon && (
-          <div className="p-2.5 rounded-xl bg-brand-500/10 text-brand-400 border border-brand-500/20 shrink-0 mt-0.5">
+          <div className="p-2.5 rounded-xl bg-white/5 text-white border border-[#292929] shrink-0 mt-0.5">
             {icon}
           </div>
         )}
         <div>
-          {title && <h3 className="text-lg font-semibold text-white tracking-tight">{title}</h3>}
-          {subtitle && <p className="text-sm text-gray-400 mt-0.5">{subtitle}</p>}
+          {title && <h3 className="text-lg font-heading font-bold text-white tracking-tight">{title}</h3>}
+          {subtitle && <p className="text-sm text-[#A1A1AA] mt-0.5">{subtitle}</p>}
         </div>
       </div>
       {action && <div className="shrink-0">{action}</div>}

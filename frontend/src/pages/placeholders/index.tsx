@@ -37,18 +37,17 @@ export function PagePlaceholder({
   actionLink = '/dashboard',
 }: PlaceholderProps) {
   return (
-    <div className="min-h-[60vh] flex items-center justify-center p-6 animate-fade-in">
-      <div className="card max-w-lg w-full text-center relative overflow-hidden p-8 border-brand-500/20 shadow-glow-sm">
-        <div className="absolute top-0 right-0 w-32 h-32 bg-brand-500/10 rounded-full blur-2xl pointer-events-none" />
-        <div className="w-14 h-14 rounded-2xl bg-brand-500/10 border border-brand-500/20 text-brand-400 mx-auto flex items-center justify-center mb-5">
-          {icon || <Sparkles className="w-7 h-7" />}
+    <div className="min-h-[60vh] flex items-center justify-center p-6 animate-fade-in font-body">
+      <div className="card max-w-lg w-full text-center relative overflow-hidden p-8 border-[#292929] bg-[#141414]">
+        <div className="w-14 h-14 rounded-2xl bg-[#171717] border border-[#292929] text-white mx-auto flex items-center justify-center mb-5">
+          {icon || <Sparkles className="w-7 h-7 text-white" />}
         </div>
-        <h2 className="text-2xl font-bold font-display text-white mb-2">{title}</h2>
-        <p className="text-sm text-gray-400 max-w-sm mx-auto mb-6 leading-relaxed">
+        <h2 className="text-2xl font-bold font-heading text-white mb-2">{title}</h2>
+        <p className="text-sm text-[#A1A1AA] max-w-sm mx-auto mb-6 leading-relaxed">
           {subtitle}
         </p>
         <div className="flex items-center justify-center gap-3">
-          <Link to={actionLink} className="btn-primary text-sm px-5 py-2.5 inline-flex items-center gap-2">
+          <Link to={actionLink} className="bg-white hover:bg-neutral-200 text-black font-semibold text-sm px-5 py-2.5 rounded-xl inline-flex items-center gap-2 transition-colors">
             <span>{actionText}</span>
             <ArrowRight className="w-4 h-4" />
           </Link>

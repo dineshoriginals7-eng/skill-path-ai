@@ -37,23 +37,23 @@ export function ProgressBar({
   };
 
   const variantGradients = {
-    brand: 'bg-gradient-to-r from-brand-600 to-violet-500 shadow-glow-sm',
-    success: 'bg-gradient-to-r from-emerald-600 to-emerald-400',
-    warning: 'bg-gradient-to-r from-amber-600 to-amber-400',
-    danger: 'bg-gradient-to-r from-rose-600 to-rose-400',
+    brand: 'bg-white',
+    success: 'bg-emerald-400',
+    warning: 'bg-amber-400',
+    danger: 'bg-rose-400',
   };
 
   return (
     <div className={`w-full ${className}`}>
       {(label || showValue) && (
-        <div className="flex items-center justify-between text-xs font-medium mb-1.5 text-gray-300">
+        <div className="flex items-center justify-between text-xs font-medium mb-1.5 text-[#A1A1AA]">
           {label ? <span>{label}</span> : <span />}
-          {showValue && <span className="font-mono text-gray-400">{clampedValue}%</span>}
+          {showValue && <span className="font-mono text-white">{clampedValue}%</span>}
         </div>
       )}
 
       <div
-        className={`w-full bg-surface-200/90 rounded-full overflow-hidden border border-surface-border/50 ${sizeStyles[size]}`}
+        className={`w-full bg-[#171717] rounded-full overflow-hidden border border-[#292929] ${sizeStyles[size]}`}
         role="progressbar"
         aria-valuenow={clampedValue}
         aria-valuemin={0}

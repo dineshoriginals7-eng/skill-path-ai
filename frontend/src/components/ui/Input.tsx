@@ -35,7 +35,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 
     const borderStyle = hasError
       ? 'border-rose-500/60 focus:border-rose-500 focus:ring-rose-500/30'
-      : 'border-surface-border focus:border-brand-500 focus:ring-brand-500/30';
+      : 'border-[#292929] focus:border-white focus:ring-1 focus:ring-white/20';
 
     const paddingLeft = icon ? 'pl-10' : 'pl-3.5';
     const paddingRight = rightIcon ? 'pr-10' : 'pr-3.5';
@@ -43,7 +43,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     return (
       <div className={`w-full ${containerClassName}`}>
         {label && (
-          <label htmlFor={inputId} className="block text-sm font-medium text-gray-300 mb-1.5">
+          <label htmlFor={inputId} className="block text-sm font-medium text-[#A1A1AA] mb-1.5">
             {label}
             {required && <span className="text-rose-400 ml-1">*</span>}
           </label>
@@ -51,7 +51,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 
         <div className="relative rounded-xl">
           {icon && (
-            <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400">
+            <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#71717A]">
               {icon}
             </div>
           )}
@@ -63,7 +63,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             type={type}
             required={required}
             disabled={disabled}
-            className={`w-full rounded-xl bg-surface-100/90 py-2.5 text-sm text-gray-100 placeholder-gray-500 outline-none transition-all duration-200 border focus:ring-2 disabled:cursor-not-allowed disabled:opacity-50 ${borderStyle} ${paddingLeft} ${paddingRight} ${className}`}
+            className={`w-full rounded-xl bg-[#171717] py-2.5 text-sm text-white placeholder-[#71717A] outline-none transition-all duration-200 border disabled:cursor-not-allowed disabled:opacity-50 ${borderStyle} ${paddingLeft} ${paddingRight} ${className}`}
             {...rest}
           />
 

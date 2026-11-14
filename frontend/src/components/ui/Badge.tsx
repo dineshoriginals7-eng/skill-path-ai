@@ -20,16 +20,16 @@ export function Badge({
     success: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/25',
     warning: 'bg-amber-500/10 text-amber-400 border-amber-500/25',
     danger: 'bg-rose-500/10 text-rose-400 border-rose-500/25',
-    info: 'bg-brand-500/10 text-brand-300 border-brand-500/25',
-    neutral: 'bg-surface-200/90 text-gray-400 border-surface-border',
+    info: 'bg-white/10 text-white border-white/20',
+    neutral: 'bg-[#171717] text-[#A1A1AA] border-[#292929]',
   };
 
   const dotStyles = {
     success: 'bg-emerald-400',
     warning: 'bg-amber-400',
     danger: 'bg-rose-400',
-    info: 'bg-brand-400',
-    neutral: 'bg-gray-400',
+    info: 'bg-white',
+    neutral: 'bg-[#A1A1AA]',
   };
 
   const sizeStyles = {

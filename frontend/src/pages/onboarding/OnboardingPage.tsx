@@ -386,29 +386,26 @@ export const OnboardingPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#0b0d13] text-gray-100 flex flex-col font-sans relative selection:bg-indigo-500/30">
-      {/* Background Gradients */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-gradient-to-b from-indigo-900/10 via-transparent to-transparent pointer-events-none" />
-
+    <div className="min-h-screen bg-[#090909] text-white flex flex-col font-body relative">
       {/* Top Navigation */}
-      <header className="border-b border-gray-800/80 bg-[#0e111a]/90 backdrop-blur-md sticky top-0 z-30">
+      <header className="border-b border-[#292929] bg-[#141414]/90 backdrop-blur-md sticky top-0 z-30">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="h-9 w-9 rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-500 flex items-center justify-center shadow-lg shadow-indigo-500/20">
-              <Brain className="h-5 w-5 text-white" />
+            <div className="h-9 w-9 rounded-xl bg-white text-black flex items-center justify-center font-bold">
+              <Brain className="h-5 w-5 text-black" />
             </div>
             <div>
-              <span className="text-base font-bold text-white tracking-tight">
-                SkillPath <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-violet-400">AI</span>
+              <span className="text-base font-bold font-heading text-white tracking-tight">
+                SkillPath AI
               </span>
-              <span className="block text-[10px] text-gray-400 font-mono">ONBOARDING SETUP</span>
+              <span className="block text-[10px] text-[#A1A1AA] font-mono">ONBOARDING SETUP</span>
             </div>
           </div>
 
-          <div className="text-xs text-gray-400 flex items-center gap-2">
+          <div className="text-xs text-[#A1A1AA] flex items-center gap-2">
             <span>Step {currentStep} of 5</span>
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-500" />
-            <span className="text-indigo-400 font-medium">{STEPS[currentStep - 1].title}</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-white" />
+            <span className="text-white font-medium">{STEPS[currentStep - 1].title}</span>
           </div>
         </div>
 
@@ -434,17 +431,17 @@ export const OnboardingPage: React.FC = () => {
                     <div
                       className={`w-7 h-7 rounded-lg flex items-center justify-center text-xs font-semibold transition-all ${
                         isCompleted
-                          ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40'
+                          ? 'bg-white/10 text-white border border-white/20'
                           : isCurrent
-                          ? 'bg-gradient-to-tr from-indigo-600 to-violet-600 text-white shadow-md shadow-indigo-600/30'
-                          : 'bg-[#151926] text-gray-500 border border-gray-800'
+                          ? 'bg-white text-black shadow-sm'
+                          : 'bg-[#171717] text-[#A1A1AA] border border-[#292929]'
                       }`}
                     >
                       {isCompleted ? <Check className="w-4 h-4" /> : <Icon className="w-3.5 h-3.5" />}
                     </div>
                     <span
                       className={`hidden sm:inline text-xs font-medium truncate ${
-                        isCurrent ? 'text-white font-semibold' : isCompleted ? 'text-gray-300' : 'text-gray-500'
+                        isCurrent ? 'text-white font-semibold' : isCompleted ? 'text-[#A1A1AA]' : 'text-neutral-500'
                       }`}
                     >
                       {s.title}
@@ -453,7 +450,7 @@ export const OnboardingPage: React.FC = () => {
                   {/* Progress Line */}
                   <div
                     className={`h-1 rounded-full transition-all duration-300 ${
-                      isCompleted ? 'bg-emerald-500' : isCurrent ? 'bg-indigo-500' : 'bg-gray-800'
+                      isCompleted ? 'bg-white' : isCurrent ? 'bg-white' : 'bg-[#292929]'
                     }`}
                   />
                 </div>
@@ -465,18 +462,18 @@ export const OnboardingPage: React.FC = () => {
 
       {/* Main Content Area */}
       <main className="flex-1 max-w-3xl w-full mx-auto px-4 sm:px-6 py-8 sm:py-12">
-        <div className="bg-[#121522]/90 border border-gray-800/80 rounded-2xl p-6 sm:p-10 shadow-xl backdrop-blur-xl">
+        <div className="bg-[#141414] border border-[#292929] rounded-2xl p-6 sm:p-10 shadow-sm">
           {/* STEP 1: Basic Info */}
           {currentStep === 1 && (
             <div className="space-y-6">
               <div>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 mb-3">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white/10 text-white border border-white/20 mb-3">
                   <Sparkles className="w-3.5 h-3.5" /> Welcome & Background
                 </span>
-                <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+                <h1 className="text-2xl sm:text-3xl font-extrabold font-heading text-white tracking-tight">
                   Let&apos;s understand your learning journey
                 </h1>
-                <p className="text-sm text-gray-400 mt-2">
+                <p className="text-sm text-[#A1A1AA] mt-2">
                   Tell us about your educational qualification and current baseline so our AI agent can calibrate your path.
                 </p>
               </div>
@@ -484,25 +481,25 @@ export const OnboardingPage: React.FC = () => {
               <div className="space-y-4 pt-2">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-medium text-gray-300 mb-1.5 uppercase tracking-wider">
+                    <label className="block text-xs font-medium text-[#A1A1AA] mb-1.5 uppercase tracking-wider">
                       Educational Qualification
                     </label>
                     <select
                       value={qualification}
                       onChange={(e) => setQualification(e.target.value)}
-                      className="w-full px-3.5 py-2.5 bg-[#171b29] border border-gray-800 rounded-xl text-sm text-white focus:outline-none focus:border-indigo-500 transition-colors cursor-pointer"
+                      className="w-full px-3.5 py-2.5 bg-[#171717] border border-[#292929] rounded-xl text-sm text-white focus:outline-none focus:border-white transition-colors cursor-pointer"
                     >
-                      <option value="High School">High School</option>
-                      <option value="Bachelor's">Bachelor&apos;s Degree</option>
-                      <option value="Master's">Master&apos;s Degree</option>
-                      <option value="PhD">PhD / Doctorate</option>
-                      <option value="Bootcamp">Coding Bootcamp</option>
-                      <option value="Self-taught">Self-Taught Engineer</option>
+                      <option value="High School" className="bg-[#141414]">High School</option>
+                      <option value="Bachelor's" className="bg-[#141414]">Bachelor&apos;s Degree</option>
+                      <option value="Master's" className="bg-[#141414]">Master&apos;s Degree</option>
+                      <option value="PhD" className="bg-[#141414]">PhD / Doctorate</option>
+                      <option value="Bootcamp" className="bg-[#141414]">Coding Bootcamp</option>
+                      <option value="Self-taught" className="bg-[#141414]">Self-Taught Engineer</option>
                     </select>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-medium text-gray-300 mb-1.5 uppercase tracking-wider">
+                    <label className="block text-xs font-medium text-[#A1A1AA] mb-1.5 uppercase tracking-wider">
                       Phone Number (Optional)
                     </label>
                     <input
@@ -510,14 +507,14 @@ export const OnboardingPage: React.FC = () => {
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       placeholder="+1 (555) 000-0000"
-                      className="w-full px-3.5 py-2.5 bg-[#171b29] border border-gray-800 rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500"
+                      className="w-full px-3.5 py-2.5 bg-[#171717] border border-[#292929] rounded-xl text-sm text-white placeholder-[#71717A] focus:outline-none focus:border-white"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-medium text-gray-300 mb-1.5 uppercase tracking-wider">
+                    <label className="block text-xs font-medium text-[#A1A1AA] mb-1.5 uppercase tracking-wider">
                       College / University / School
                     </label>
                     <input
@@ -525,12 +522,12 @@ export const OnboardingPage: React.FC = () => {
                       value={college}
                       onChange={(e) => setCollege(e.target.value)}
                       placeholder="e.g. Berkeley, MIT or Self-Study"
-                      className="w-full px-3.5 py-2.5 bg-[#171b29] border border-gray-800 rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500"
+                      className="w-full px-3.5 py-2.5 bg-[#171717] border border-[#292929] rounded-xl text-sm text-white placeholder-[#71717A] focus:outline-none focus:border-white"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-medium text-gray-300 mb-1.5 uppercase tracking-wider">
+                    <label className="block text-xs font-medium text-[#A1A1AA] mb-1.5 uppercase tracking-wider">
                       Academic Year / Standing
                     </label>
                     <input
@@ -538,13 +535,13 @@ export const OnboardingPage: React.FC = () => {
                       value={academicYear}
                       onChange={(e) => setAcademicYear(e.target.value)}
                       placeholder="e.g. 3rd Year, Final Year, or Graduated"
-                      className="w-full px-3.5 py-2.5 bg-[#171b29] border border-gray-800 rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500"
+                      className="w-full px-3.5 py-2.5 bg-[#171717] border border-[#292929] rounded-xl text-sm text-white placeholder-[#71717A] focus:outline-none focus:border-white"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-medium text-gray-300 mb-1.5 uppercase tracking-wider">
+                  <label className="block text-xs font-medium text-[#A1A1AA] mb-1.5 uppercase tracking-wider">
                     Department / Major
                   </label>
                   <input
@@ -552,12 +549,12 @@ export const OnboardingPage: React.FC = () => {
                     value={department}
                     onChange={(e) => setDepartment(e.target.value)}
                     placeholder="e.g. Computer Science, Information Systems, Electrical"
-                    className="w-full px-3.5 py-2.5 bg-[#171b29] border border-gray-800 rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500"
+                    className="w-full px-3.5 py-2.5 bg-[#171717] border border-[#292929] rounded-xl text-sm text-white placeholder-[#71717A] focus:outline-none focus:border-white"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-medium text-gray-300 mb-1.5 uppercase tracking-wider">
+                  <label className="block text-xs font-medium text-[#A1A1AA] mb-1.5 uppercase tracking-wider">
                     Brief Bio & Engineering Interests
                   </label>
                   <textarea
@@ -565,7 +562,7 @@ export const OnboardingPage: React.FC = () => {
                     value={bio}
                     onChange={(e) => setBio(e.target.value)}
                     placeholder="Tell us what excites you about software, what you like building, or your focus area..."
-                    className="w-full px-3.5 py-2.5 bg-[#171b29] border border-gray-800 rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500"
+                    className="w-full px-3.5 py-2.5 bg-[#171717] border border-[#292929] rounded-xl text-sm text-white placeholder-[#71717A] focus:outline-none focus:border-white"
                   />
                 </div>
               </div>
@@ -576,20 +573,20 @@ export const OnboardingPage: React.FC = () => {
           {currentStep === 2 && (
             <div className="space-y-6">
               <div>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 mb-3">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white/10 text-white border border-white/20 mb-3">
                   <GraduationCap className="w-3.5 h-3.5" /> Academic Performance
                 </span>
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+                <h2 className="text-2xl sm:text-3xl font-extrabold font-heading text-white tracking-tight">
                   Academic Milestones & Certifications
                 </h2>
-                <p className="text-sm text-gray-400 mt-2">
+                <p className="text-sm text-[#A1A1AA] mt-2">
                   Add completed courses or industry credentials to establish your baseline skills.
                 </p>
               </div>
 
               {/* GPA */}
               <div className="pt-2">
-                <label className="block text-xs font-medium text-gray-300 mb-1.5 uppercase tracking-wider">
+                <label className="block text-xs font-medium text-[#A1A1AA] mb-1.5 uppercase tracking-wider">
                   GPA or Percentage Score
                 </label>
                 <input
@@ -597,12 +594,12 @@ export const OnboardingPage: React.FC = () => {
                   value={gpa}
                   onChange={(e) => setGpa(e.target.value)}
                   placeholder="e.g. 3.8 / 4.0 or 85%"
-                  className="w-full max-w-xs px-3.5 py-2.5 bg-[#171b29] border border-gray-800 rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500"
+                  className="w-full max-w-xs px-3.5 py-2.5 bg-[#171717] border border-[#292929] rounded-xl text-sm text-white placeholder-[#71717A] focus:outline-none focus:border-white"
                 />
               </div>
 
               {/* Dynamic Courses List */}
-              <div className="pt-4 border-t border-gray-800/80">
+              <div className="pt-4 border-t border-[#292929]">
                 <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-2">
                   Previously Completed Courses
                 </h3>
@@ -610,18 +607,18 @@ export const OnboardingPage: React.FC = () => {
                   {courses.map((course, idx) => (
                     <div
                       key={idx}
-                      className="flex items-center justify-between p-3 rounded-xl bg-[#171b29] border border-gray-800"
+                      className="flex items-center justify-between p-3 rounded-xl bg-[#171717] border border-[#292929]"
                     >
                       <div>
                         <p className="text-sm font-medium text-white">{course.name}</p>
-                        <p className="text-xs text-gray-400">
+                        <p className="text-xs text-[#A1A1AA]">
                           {course.platform} &bull; {course.year}
                         </p>
                       </div>
                       <button
                         type="button"
                         onClick={() => setCourses(courses.filter((_, i) => i !== idx))}
-                        className="text-gray-500 hover:text-red-400 p-1 transition-colors"
+                        className="text-[#A1A1AA] hover:text-white p-1 transition-colors"
                       >
                         <Trash2 className="w-4 h-4" />
                       </button>
@@ -636,14 +633,14 @@ export const OnboardingPage: React.FC = () => {
                     value={newCourseName}
                     onChange={(e) => setNewCourseName(e.target.value)}
                     placeholder="Course name"
-                    className="sm:col-span-2 px-3 py-2 bg-[#141722] border border-gray-800 rounded-lg text-xs text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500"
+                    className="sm:col-span-2 px-3 py-2 bg-[#141414] border border-[#292929] rounded-lg text-xs text-white placeholder-[#71717A] focus:outline-none focus:border-white"
                   />
                   <input
                     type="text"
                     value={newCoursePlatform}
                     onChange={(e) => setNewCoursePlatform(e.target.value)}
                     placeholder="Platform/School"
-                    className="px-3 py-2 bg-[#141722] border border-gray-800 rounded-lg text-xs text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500"
+                    className="px-3 py-2 bg-[#141414] border border-[#292929] rounded-lg text-xs text-white placeholder-[#71717A] focus:outline-none focus:border-white"
                   />
                   <div className="flex gap-2">
                     <input
@@ -651,12 +648,12 @@ export const OnboardingPage: React.FC = () => {
                       value={newCourseYear}
                       onChange={(e) => setNewCourseYear(e.target.value)}
                       placeholder="Year"
-                      className="w-full px-3 py-2 bg-[#141722] border border-gray-800 rounded-lg text-xs text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500"
+                      className="w-full px-3 py-2 bg-[#141414] border border-[#292929] rounded-lg text-xs text-white placeholder-[#71717A] focus:outline-none focus:border-white"
                     />
                     <button
                       type="button"
                       onClick={handleAddCourse}
-                      className="px-3 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold shrink-0 flex items-center gap-1"
+                      className="px-3 py-2 rounded-lg bg-white hover:bg-neutral-200 text-black text-xs font-semibold shrink-0 flex items-center gap-1"
                     >
                       <Plus className="w-3.5 h-3.5" /> Add
                     </button>
@@ -665,7 +662,7 @@ export const OnboardingPage: React.FC = () => {
               </div>
 
               {/* Dynamic Certifications List */}
-              <div className="pt-4 border-t border-gray-800/80">
+              <div className="pt-4 border-t border-[#292929]">
                 <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-2">
                   Certifications & Badges
                 </h3>
@@ -673,18 +670,18 @@ export const OnboardingPage: React.FC = () => {
                   {certifications.map((cert, idx) => (
                     <div
                       key={idx}
-                      className="flex items-center justify-between p-3 rounded-xl bg-[#171b29] border border-gray-800"
+                      className="flex items-center justify-between p-3 rounded-xl bg-[#171717] border border-[#292929]"
                     >
                       <div>
                         <p className="text-sm font-medium text-white">{cert.name}</p>
-                        <p className="text-xs text-gray-400">
+                        <p className="text-xs text-[#A1A1AA]">
                           {cert.issuer} &bull; {cert.date}
                         </p>
                       </div>
                       <button
                         type="button"
                         onClick={() => setCertifications(certifications.filter((_, i) => i !== idx))}
-                        className="text-gray-500 hover:text-red-400 p-1 transition-colors"
+                        className="text-[#A1A1AA] hover:text-white p-1 transition-colors"
                       >
                         <Trash2 className="w-4 h-4" />
                       </button>
@@ -698,14 +695,14 @@ export const OnboardingPage: React.FC = () => {
                     value={newCertName}
                     onChange={(e) => setNewCertName(e.target.value)}
                     placeholder="Certificate Title"
-                    className="sm:col-span-2 px-3 py-2 bg-[#141722] border border-gray-800 rounded-lg text-xs text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500"
+                    className="sm:col-span-2 px-3 py-2 bg-[#141414] border border-[#292929] rounded-lg text-xs text-white placeholder-[#71717A] focus:outline-none focus:border-white"
                   />
                   <input
                     type="text"
                     value={newCertIssuer}
                     onChange={(e) => setNewCertIssuer(e.target.value)}
                     placeholder="Issuer (AWS, Google, etc.)"
-                    className="px-3 py-2 bg-[#141722] border border-gray-800 rounded-lg text-xs text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500"
+                    className="px-3 py-2 bg-[#141414] border border-[#292929] rounded-lg text-xs text-white placeholder-[#71717A] focus:outline-none focus:border-white"
                   />
                   <div className="flex gap-2">
                     <input
@@ -713,12 +710,12 @@ export const OnboardingPage: React.FC = () => {
                       value={newCertDate}
                       onChange={(e) => setNewCertDate(e.target.value)}
                       placeholder="Year"
-                      className="w-full px-3 py-2 bg-[#141722] border border-gray-800 rounded-lg text-xs text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500"
+                      className="w-full px-3 py-2 bg-[#141414] border border-[#292929] rounded-lg text-xs text-white placeholder-[#71717A] focus:outline-none focus:border-white"
                     />
                     <button
                       type="button"
                       onClick={handleAddCert}
-                      className="px-3 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold shrink-0 flex items-center gap-1"
+                      className="px-3 py-2 rounded-lg bg-white hover:bg-neutral-200 text-black text-xs font-semibold shrink-0 flex items-center gap-1"
                     >
                       <Plus className="w-3.5 h-3.5" /> Add
                     </button>
@@ -732,34 +729,34 @@ export const OnboardingPage: React.FC = () => {
           {currentStep === 3 && (
             <div className="space-y-6">
               <div>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 mb-3">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white/10 text-white border border-white/20 mb-3">
                   <Briefcase className="w-3.5 h-3.5" /> Hands-on Capabilities
                 </span>
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+                <h2 className="text-2xl sm:text-3xl font-extrabold font-heading text-white tracking-tight">
                   Technical Skills & Practical Experience
                 </h2>
-                <p className="text-sm text-gray-400 mt-2">
+                <p className="text-sm text-[#A1A1AA] mt-2">
                   Add tags for technologies you know, followed by internships or standout projects.
                 </p>
               </div>
 
               {/* Skill Tag Input */}
               <div className="pt-2">
-                <label className="block text-xs font-medium text-gray-300 mb-1.5 uppercase tracking-wider">
+                <label className="block text-xs font-medium text-[#A1A1AA] mb-1.5 uppercase tracking-wider">
                   Current Technical Skills (Type and press Enter)
                 </label>
-                <div className="p-3 bg-[#171b29] border border-gray-800 rounded-xl focus-within:border-indigo-500 transition-colors">
+                <div className="p-3 bg-[#171717] border border-[#292929] rounded-xl focus-within:border-white transition-colors">
                   <div className="flex flex-wrap gap-2 mb-2">
                     {skills.map((skill) => (
                       <span
                         key={skill}
-                        className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-medium bg-indigo-500/20 text-indigo-300 border border-indigo-500/30"
+                        className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-medium bg-white/10 text-white border border-white/20"
                       >
                         {skill}
                         <button
                           type="button"
                           onClick={() => removeSkill(skill)}
-                          className="hover:text-red-400 transition-colors"
+                          className="hover:text-neutral-400 transition-colors"
                         >
                           <X className="w-3.5 h-3.5" />
                         </button>
@@ -772,13 +769,13 @@ export const OnboardingPage: React.FC = () => {
                     onChange={(e) => setSkillInput(e.target.value)}
                     onKeyDown={handleSkillKeyDown}
                     placeholder="Add skill (e.g. Docker, TypeScript, PyTorch, GraphQL)..."
-                    className="w-full bg-transparent text-sm text-white placeholder-gray-500 focus:outline-none"
+                    className="w-full bg-transparent text-sm text-white placeholder-[#71717A] focus:outline-none"
                   />
                 </div>
               </div>
 
               {/* Work Experience dynamic list */}
-              <div className="pt-4 border-t border-gray-800/80">
+              <div className="pt-4 border-t border-[#292929]">
                 <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-2">
                   Work / Internship Experience
                 </h3>
@@ -786,18 +783,18 @@ export const OnboardingPage: React.FC = () => {
                   {workExp.map((work, idx) => (
                     <div
                       key={idx}
-                      className="flex items-center justify-between p-3 rounded-xl bg-[#171b29] border border-gray-800"
+                      className="flex items-center justify-between p-3 rounded-xl bg-[#171717] border border-[#292929]"
                     >
                       <div>
                         <p className="text-sm font-semibold text-white">{work.role}</p>
-                        <p className="text-xs text-gray-400">
+                        <p className="text-xs text-[#A1A1AA]">
                           {work.company} &bull; {work.duration}
                         </p>
                       </div>
                       <button
                         type="button"
                         onClick={() => setWorkExp(workExp.filter((_, i) => i !== idx))}
-                        className="text-gray-500 hover:text-red-400 p-1"
+                        className="text-[#A1A1AA] hover:text-white p-1"
                       >
                         <Trash2 className="w-4 h-4" />
                       </button>
@@ -811,14 +808,14 @@ export const OnboardingPage: React.FC = () => {
                     value={newCompany}
                     onChange={(e) => setNewCompany(e.target.value)}
                     placeholder="Company name"
-                    className="px-3 py-2 bg-[#141722] border border-gray-800 rounded-lg text-xs text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500"
+                    className="px-3 py-2 bg-[#141414] border border-[#292929] rounded-lg text-xs text-white placeholder-[#71717A] focus:outline-none focus:border-white"
                   />
                   <input
                     type="text"
                     value={newRole}
                     onChange={(e) => setNewRole(e.target.value)}
                     placeholder="Role / Title"
-                    className="px-3 py-2 bg-[#141722] border border-gray-800 rounded-lg text-xs text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500"
+                    className="px-3 py-2 bg-[#141414] border border-[#292929] rounded-lg text-xs text-white placeholder-[#71717A] focus:outline-none focus:border-white"
                   />
                   <div className="flex gap-2">
                     <input
@@ -826,12 +823,12 @@ export const OnboardingPage: React.FC = () => {
                       value={newDuration}
                       onChange={(e) => setNewDuration(e.target.value)}
                       placeholder="Duration (e.g. 6 mos)"
-                      className="w-full px-3 py-2 bg-[#141722] border border-gray-800 rounded-lg text-xs text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500"
+                      className="w-full px-3 py-2 bg-[#141414] border border-[#292929] rounded-lg text-xs text-white placeholder-[#71717A] focus:outline-none focus:border-white"
                     />
                     <button
                       type="button"
                       onClick={handleAddWork}
-                      className="px-3 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold shrink-0"
+                      className="px-3 py-2 rounded-lg bg-white hover:bg-neutral-200 text-black text-xs font-semibold shrink-0"
                     >
                       Add
                     </button>
@@ -840,7 +837,7 @@ export const OnboardingPage: React.FC = () => {
               </div>
 
               {/* Projects dynamic list */}
-              <div className="pt-4 border-t border-gray-800/80">
+              <div className="pt-4 border-t border-[#292929]">
                 <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-2">
                   Key Projects & Portfolio
                 </h3>
@@ -848,13 +845,13 @@ export const OnboardingPage: React.FC = () => {
                   {projects.map((proj, idx) => (
                     <div
                       key={idx}
-                      className="flex items-center justify-between p-3 rounded-xl bg-[#171b29] border border-gray-800"
+                      className="flex items-center justify-between p-3 rounded-xl bg-[#171717] border border-[#292929]"
                     >
                       <div>
                         <p className="text-sm font-semibold text-white">{proj.title}</p>
-                        <p className="text-xs text-gray-400">
+                        <p className="text-xs text-[#A1A1AA]">
                           {proj.tech} &bull;{' '}
-                          <a href={proj.url} target="_blank" rel="noreferrer" className="text-indigo-400 hover:underline">
+                          <a href={proj.url} target="_blank" rel="noreferrer" className="text-white underline">
                             {proj.url}
                           </a>
                         </p>
@@ -862,7 +859,7 @@ export const OnboardingPage: React.FC = () => {
                       <button
                         type="button"
                         onClick={() => setProjects(projects.filter((_, i) => i !== idx))}
-                        className="text-gray-500 hover:text-red-400 p-1"
+                        className="text-[#A1A1AA] hover:text-white p-1"
                       >
                         <Trash2 className="w-4 h-4" />
                       </button>
@@ -876,14 +873,14 @@ export const OnboardingPage: React.FC = () => {
                     value={newProjectTitle}
                     onChange={(e) => setNewProjectTitle(e.target.value)}
                     placeholder="Project title"
-                    className="px-3 py-2 bg-[#141722] border border-gray-800 rounded-lg text-xs text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500"
+                    className="px-3 py-2 bg-[#141414] border border-[#292929] rounded-lg text-xs text-white placeholder-[#71717A] focus:outline-none focus:border-white"
                   />
                   <input
                     type="text"
                     value={newProjectTech}
                     onChange={(e) => setNewProjectTech(e.target.value)}
                     placeholder="Tech stack (React, Node, etc.)"
-                    className="px-3 py-2 bg-[#141722] border border-gray-800 rounded-lg text-xs text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500"
+                    className="px-3 py-2 bg-[#141414] border border-[#292929] rounded-lg text-xs text-white placeholder-[#71717A] focus:outline-none focus:border-white"
                   />
                   <div className="flex gap-2">
                     <input
@@ -891,12 +888,12 @@ export const OnboardingPage: React.FC = () => {
                       value={newProjectUrl}
                       onChange={(e) => setNewProjectUrl(e.target.value)}
                       placeholder="Repo or Demo URL"
-                      className="w-full px-3 py-2 bg-[#141722] border border-gray-800 rounded-lg text-xs text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500"
+                      className="w-full px-3 py-2 bg-[#141414] border border-[#292929] rounded-lg text-xs text-white placeholder-[#71717A] focus:outline-none focus:border-white"
                     />
                     <button
                       type="button"
                       onClick={handleAddProject}
-                      className="px-3 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold shrink-0"
+                      className="px-3 py-2 rounded-lg bg-white hover:bg-neutral-200 text-black text-xs font-semibold shrink-0"
                     >
                       Add
                     </button>
@@ -910,13 +907,13 @@ export const OnboardingPage: React.FC = () => {
           {currentStep === 4 && (
             <div className="space-y-6">
               <div>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 mb-3">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white/10 text-white border border-white/20 mb-3">
                   <Upload className="w-3.5 h-3.5" /> Context Ingestion
                 </span>
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+                <h2 className="text-2xl sm:text-3xl font-extrabold font-heading text-white tracking-tight">
                   Upload Resume or Academic Transcripts
                 </h2>
-                <p className="text-sm text-gray-400 mt-2">
+                <p className="text-sm text-[#A1A1AA] mt-2">
                   Drop your resume, project summaries, or syllabus. SkillPath AI automatically extracts competency evidence.
                 </p>
               </div>
@@ -932,8 +929,8 @@ export const OnboardingPage: React.FC = () => {
                 onClick={() => fileInputRef.current?.click()}
                 className={`border-2 border-dashed rounded-2xl p-8 text-center cursor-pointer transition-all ${
                   isDragOver
-                    ? 'border-indigo-500 bg-indigo-500/10'
-                    : 'border-gray-800 hover:border-indigo-500/50 bg-[#161a27]/60'
+                    ? 'border-white bg-white/5'
+                    : 'border-[#292929] hover:border-neutral-500 bg-[#171717]'
                 }`}
               >
                 <input
@@ -944,13 +941,13 @@ export const OnboardingPage: React.FC = () => {
                   accept=".pdf,.docx,.jpg,.jpeg,.png"
                   className="hidden"
                 />
-                <div className="w-14 h-14 mx-auto rounded-2xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 flex items-center justify-center mb-4">
+                <div className="w-14 h-14 mx-auto rounded-2xl bg-[#141414] border border-[#292929] text-white flex items-center justify-center mb-4">
                   <Upload className="w-7 h-7" />
                 </div>
                 <h4 className="text-base font-semibold text-white">
                   Click to browse or drag and drop files here
                 </h4>
-                <p className="text-xs text-gray-400 mt-1">
+                <p className="text-xs text-[#A1A1AA] mt-1">
                   Supports PDF, DOCX, JPG, and PNG (up to 25MB each)
                 </p>
               </div>
@@ -958,7 +955,7 @@ export const OnboardingPage: React.FC = () => {
               {/* Uploaded Files List */}
               {uploadedFiles.length > 0 && (
                 <div className="space-y-2.5">
-                  <h4 className="text-xs font-semibold text-gray-300 uppercase tracking-wider">
+                  <h4 className="text-xs font-semibold text-white uppercase tracking-wider">
                     Attached Documents ({uploadedFiles.length})
                   </h4>
                   {uploadedFiles.map((doc) => {
@@ -969,22 +966,22 @@ export const OnboardingPage: React.FC = () => {
                     return (
                       <div
                         key={doc.id}
-                        className="flex items-center justify-between p-3.5 rounded-xl bg-[#171b29] border border-gray-800"
+                        className="flex items-center justify-between p-3.5 rounded-xl bg-[#171717] border border-[#292929]"
                       >
                         <div className="flex items-center gap-3">
-                          <div className="w-9 h-9 rounded-lg bg-indigo-500/15 text-indigo-400 flex items-center justify-center">
+                          <div className="w-9 h-9 rounded-lg bg-[#141414] text-white border border-[#292929] flex items-center justify-center">
                             <IconComponent className="w-4 h-4" />
                           </div>
                           <div>
                             <p className="text-xs font-semibold text-white truncate max-w-xs sm:max-w-md">
                               {doc.name}
                             </p>
-                            <p className="text-[11px] text-gray-400">
+                            <p className="text-[11px] text-[#A1A1AA]">
                               {(doc.size / 1024).toFixed(1)} KB &bull;{' '}
                               {doc.analyzed ? (
-                                <span className="text-emerald-400 font-medium">Analyzed by AI</span>
+                                <span className="text-white font-medium">Analyzed by AI</span>
                               ) : (
-                                <span className="text-amber-400">Pending analysis</span>
+                                <span className="text-[#A1A1AA]">Pending analysis</span>
                               )}
                             </p>
                           </div>
@@ -993,7 +990,7 @@ export const OnboardingPage: React.FC = () => {
                         <button
                           type="button"
                           onClick={() => setUploadedFiles(uploadedFiles.filter((d) => d.id !== doc.id))}
-                          className="text-gray-500 hover:text-red-400 p-1 transition-colors"
+                          className="text-[#A1A1AA] hover:text-white p-1 transition-colors"
                         >
                           <Trash2 className="w-4 h-4" />
                         </button>
@@ -1004,15 +1001,15 @@ export const OnboardingPage: React.FC = () => {
               )}
 
               {/* Consent Toggle */}
-              <div className="p-4 rounded-xl bg-[#171b29] border border-gray-800 flex items-start gap-3">
+              <div className="p-4 rounded-xl bg-[#171717] border border-[#292929] flex items-start gap-3">
                 <input
                   type="checkbox"
                   id="consent"
                   checked={consentAnalysis}
                   onChange={(e) => setConsentAnalysis(e.target.checked)}
-                  className="mt-0.5 h-4 w-4 rounded border-gray-700 bg-[#141721] text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                  className="mt-0.5 h-4 w-4 rounded border-[#292929] bg-[#141414] text-white focus:ring-white cursor-pointer"
                 />
-                <label htmlFor="consent" className="text-xs text-gray-300 cursor-pointer">
+                <label htmlFor="consent" className="text-xs text-[#A1A1AA] cursor-pointer">
                   <span className="font-semibold text-white block">
                     I consent to AI analysis of my documents
                   </span>
@@ -1026,16 +1023,16 @@ export const OnboardingPage: React.FC = () => {
                   type="button"
                   onClick={handleAnalyzeDocuments}
                   disabled={isAnalyzing}
-                  className="w-full py-2.5 px-4 rounded-xl bg-violet-950/60 hover:bg-violet-900/60 border border-violet-800/60 text-violet-300 text-xs font-semibold flex items-center justify-center gap-2 transition-colors disabled:opacity-50"
+                  className="w-full py-2.5 px-4 rounded-xl bg-white hover:bg-neutral-200 text-black text-xs font-semibold flex items-center justify-center gap-2 transition-colors disabled:opacity-50"
                 >
                   {isAnalyzing ? (
                     <>
-                      <Loader2 className="w-4 h-4 animate-spin text-violet-400" />
+                      <Loader2 className="w-4 h-4 animate-spin text-black" />
                       <span>Analyzing document contents with LLM...</span>
                     </>
                   ) : (
                     <>
-                      <Sparkles className="w-4 h-4 text-violet-400" />
+                      <Sparkles className="w-4 h-4 text-black" />
                       <span>Analyze & Extract Competencies</span>
                     </>
                   )}
@@ -1048,29 +1045,29 @@ export const OnboardingPage: React.FC = () => {
           {currentStep === 5 && (
             <div className="space-y-6">
               <div>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 mb-3">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white/10 text-white border border-white/20 mb-3">
                   <Target className="w-3.5 h-3.5" /> Final Calibration
                 </span>
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+                <h2 className="text-2xl sm:text-3xl font-extrabold font-heading text-white tracking-tight">
                   Define Your Primary Career Target
                 </h2>
-                <p className="text-sm text-gray-400 mt-2">
+                <p className="text-sm text-[#A1A1AA] mt-2">
                   Select the engineering role you are actively targeting. Your curriculum and readiness metrics will optimize for this milestone.
                 </p>
               </div>
 
               {/* Primary Career Dropdown */}
               <div className="pt-2">
-                <label className="block text-xs font-medium text-gray-300 mb-1.5 uppercase tracking-wider">
+                <label className="block text-xs font-medium text-[#A1A1AA] mb-1.5 uppercase tracking-wider">
                   Target Career Role
                 </label>
                 <select
                   value={selectedCareerId}
                   onChange={(e) => setSelectedCareerId(e.target.value)}
-                  className="w-full px-4 py-3 bg-[#171b29] border border-gray-800 rounded-xl text-sm text-white focus:outline-none focus:border-indigo-500 transition-colors cursor-pointer"
+                  className="w-full px-4 py-3 bg-[#171717] border border-[#292929] rounded-xl text-sm text-white focus:outline-none focus:border-white transition-colors cursor-pointer"
                 >
                   {careerRoles.map((role) => (
-                    <option key={role.id} value={role.id}>
+                    <option key={role.id} value={role.id} className="bg-[#141414] text-white">
                       {role.name} {role.category ? `(${role.category})` : ''}
                     </option>
                   ))}
@@ -1079,11 +1076,11 @@ export const OnboardingPage: React.FC = () => {
 
               {/* Selected Career Description Preview */}
               {careerRoles.find((r) => r.id === selectedCareerId) && (
-                <div className="p-4 rounded-xl bg-gradient-to-r from-indigo-950/40 to-slate-900/60 border border-indigo-800/40">
-                  <h4 className="text-xs font-semibold text-indigo-300 uppercase tracking-wider mb-1">
+                <div className="p-4 rounded-xl bg-[#171717] border border-[#292929]">
+                  <h4 className="text-xs font-semibold text-white uppercase tracking-wider mb-1">
                     Role Summary
                   </h4>
-                  <p className="text-xs text-gray-300 leading-relaxed">
+                  <p className="text-xs text-[#A1A1AA] leading-relaxed">
                     {careerRoles.find((r) => r.id === selectedCareerId)?.description}
                   </p>
                 </div>
@@ -1091,7 +1088,7 @@ export const OnboardingPage: React.FC = () => {
 
               {/* Career Aspirations Textarea */}
               <div>
-                <label className="block text-xs font-medium text-gray-300 mb-1.5 uppercase tracking-wider">
+                <label className="block text-xs font-medium text-[#A1A1AA] mb-1.5 uppercase tracking-wider">
                   Specific Aspirations & Timeline
                 </label>
                 <textarea
@@ -1099,14 +1096,14 @@ export const OnboardingPage: React.FC = () => {
                   value={careerAspirations}
                   onChange={(e) => setCareerAspirations(e.target.value)}
                   placeholder="e.g. Seeking an AI Full Stack role within 6 months. I want to build robust AI agents and scale backend vector databases."
-                  className="w-full px-3.5 py-2.5 bg-[#171b29] border border-gray-800 rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500"
+                  className="w-full px-3.5 py-2.5 bg-[#171717] border border-[#292929] rounded-xl text-sm text-white placeholder-[#71717A] focus:outline-none focus:border-white"
                 />
               </div>
             </div>
           )}
 
           {/* Step Actions Footer */}
-          <div className="mt-10 pt-6 border-t border-gray-800 flex items-center justify-between">
+          <div className="mt-10 pt-6 border-t border-[#292929] flex items-center justify-between">
             <button
               type="button"
               disabled={currentStep === 1 || isSaving}
@@ -1116,7 +1113,7 @@ export const OnboardingPage: React.FC = () => {
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }
               }}
-              className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl border border-gray-800 hover:border-gray-700 bg-[#161a26] text-xs font-semibold text-gray-300 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+              className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl border border-[#292929] hover:bg-[#171717] text-xs font-semibold text-[#A1A1AA] hover:text-white transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
             >
               <ChevronLeft className="w-4 h-4" /> Back
             </button>
@@ -1125,11 +1122,11 @@ export const OnboardingPage: React.FC = () => {
               type="button"
               disabled={isSaving}
               onClick={handleSaveAndContinue}
-              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 via-indigo-500 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white text-xs font-semibold shadow-lg shadow-indigo-600/30 transition-all disabled:opacity-50"
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-white hover:bg-neutral-200 text-black text-xs font-semibold shadow-sm transition-all disabled:opacity-50"
             >
               {isSaving ? (
                 <>
-                  <Loader2 className="w-4 h-4 animate-spin" />
+                  <Loader2 className="w-4 h-4 animate-spin text-black" />
                   <span>Saving...</span>
                 </>
               ) : currentStep === 5 ? (
@@ -1150,18 +1147,18 @@ export const OnboardingPage: React.FC = () => {
 
       {/* ACADEMIC REPORT EXTRACTION & VERIFICATION MODAL */}
       {showVerificationModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm animate-fade-in">
-          <div className="bg-[#121522] border border-gray-800 rounded-2xl max-w-2xl w-full p-6 shadow-2xl space-y-5 animate-scale-up">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in font-body">
+          <div className="bg-[#141414] border border-[#292929] rounded-2xl max-w-2xl w-full p-6 shadow-2xl space-y-5 animate-scale-up">
             <div className="flex items-start justify-between">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-indigo-500/15 border border-indigo-500/30 text-indigo-400 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-xl bg-[#171717] border border-[#292929] text-white flex items-center justify-center">
                   <Sparkles className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-white tracking-tight">
+                  <h3 className="text-lg font-bold font-heading text-white tracking-tight">
                     Academic Extraction & Skill Verification
                   </h3>
-                  <p className="text-xs text-gray-400">
+                  <p className="text-xs text-[#A1A1AA]">
                     Review and verify competencies extracted by AI from your uploaded academic transcript.
                   </p>
                 </div>
@@ -1169,7 +1166,7 @@ export const OnboardingPage: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setShowVerificationModal(false)}
-                className="text-gray-400 hover:text-white p-1 rounded-lg hover:bg-gray-800 transition-colors"
+                className="text-[#A1A1AA] hover:text-white p-1 rounded-lg hover:bg-[#171717] transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -1182,8 +1179,8 @@ export const OnboardingPage: React.FC = () => {
                   key={item.id}
                   className={`p-3.5 rounded-xl border transition-all ${
                     item.verified
-                      ? 'bg-[#161a29] border-indigo-500/40'
-                      : 'bg-[#11131c] border-gray-800/80 opacity-60'
+                      ? 'bg-[#171717] border-white/30'
+                      : 'bg-[#171717] border-[#292929] opacity-60'
                   }`}
                 >
                   <div className="flex items-center justify-between gap-3">
@@ -1196,16 +1193,16 @@ export const OnboardingPage: React.FC = () => {
                           updated[idx].verified = e.target.checked;
                           setExtractedItems(updated);
                         }}
-                        className="w-4 h-4 rounded border-gray-700 bg-gray-900 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                        className="w-4 h-4 rounded border-[#292929] bg-[#141414] text-white focus:ring-white cursor-pointer"
                       />
                       <div>
                         <div className="flex items-center gap-2">
                           <span className="text-xs font-bold text-white">{item.courseName}</span>
-                          <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 font-semibold border border-emerald-500/30">
+                          <span className="text-[10px] px-2 py-0.5 rounded-full bg-white/10 text-white font-semibold border border-white/20">
                             Grade: {item.grade}
                           </span>
                         </div>
-                        <span className="text-[11px] text-gray-400">
+                        <span className="text-[11px] text-[#A1A1AA]">
                           {item.institution || 'Computer Science Department'}
                         </span>
                       </div>
@@ -1221,7 +1218,7 @@ export const OnboardingPage: React.FC = () => {
                           updated[idx].skillName = e.target.value;
                           setExtractedItems(updated);
                         }}
-                        className="text-xs px-2.5 py-1 rounded-lg bg-[#0e111a] border border-gray-700 text-white focus:outline-none focus:border-indigo-500 max-w-[170px]"
+                        className="text-xs px-2.5 py-1 rounded-lg bg-[#141414] border border-[#292929] text-white focus:outline-none focus:border-white max-w-[170px]"
                         placeholder="Skill Name"
                       />
                       <select
@@ -1231,11 +1228,11 @@ export const OnboardingPage: React.FC = () => {
                           updated[idx].suggestedLevel = e.target.value as any;
                           setExtractedItems(updated);
                         }}
-                        className="text-xs px-2.5 py-1 rounded-lg bg-[#0e111a] border border-gray-700 text-gray-300 focus:outline-none focus:border-indigo-500 cursor-pointer"
+                        className="text-xs px-2.5 py-1 rounded-lg bg-[#141414] border border-[#292929] text-white focus:outline-none focus:border-white cursor-pointer"
                       >
-                        <option value="Beginner">Beginner</option>
-                        <option value="Intermediate">Intermediate</option>
-                        <option value="Advanced">Advanced</option>
+                        <option value="Beginner" className="bg-[#141414]">Beginner</option>
+                        <option value="Intermediate" className="bg-[#141414]">Intermediate</option>
+                        <option value="Advanced" className="bg-[#141414]">Advanced</option>
                       </select>
                     </div>
                   </div>
@@ -1244,22 +1241,22 @@ export const OnboardingPage: React.FC = () => {
             </div>
 
             {/* Note & Action Buttons */}
-            <div className="pt-3 border-t border-gray-800 flex items-center justify-between">
-              <span className="text-[11px] text-gray-400">
+            <div className="pt-3 border-t border-[#292929] flex items-center justify-between">
+              <span className="text-[11px] text-[#A1A1AA]">
                 Uncheck any items you do not wish to associate with your profile.
               </span>
               <div className="flex items-center gap-2">
                 <button
                   type="button"
                   onClick={() => setShowVerificationModal(false)}
-                  className="px-4 py-2 rounded-xl border border-gray-800 hover:border-gray-700 bg-[#161a26] text-xs font-semibold text-gray-300 transition-colors"
+                  className="px-4 py-2 rounded-xl border border-[#292929] hover:bg-[#171717] text-xs font-semibold text-[#A1A1AA] transition-colors"
                 >
                   Cancel
                 </button>
                 <button
                   type="button"
                   onClick={handleConfirmExtractedCompetencies}
-                  className="px-4 py-2 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white text-xs font-semibold shadow-md shadow-indigo-600/30 transition-all flex items-center gap-1.5"
+                  className="px-4 py-2 rounded-xl bg-white hover:bg-neutral-200 text-black text-xs font-semibold shadow-sm transition-all flex items-center gap-1.5"
                 >
                   <Check className="w-4 h-4" />
                   <span>Verify & Save to Profile</span>

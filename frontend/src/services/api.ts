@@ -53,6 +53,8 @@ export type AssessmentQuestion = {
 };
 export type RoadmapData = LearningRoadmap;
 export type AIInsight = LearnerInsight;
+export type AssessmentSession = Assessment & { [key: string]: any };
+export type AssessmentResults = CompleteAssessmentResponse & { [key: string]: any };
 export type { LearningModule, MentorMessage };
 
 const API_BASE_URL =

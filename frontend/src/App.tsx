@@ -46,10 +46,10 @@ export function ProtectedRoute({ children }: RouteGuardProps) {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-surface-DEFAULT flex items-center justify-center text-gray-300">
+      <div className="min-h-screen bg-[#090909] flex items-center justify-center text-neutral-300 font-sans">
         <div className="flex flex-col items-center gap-3">
-          <div className="w-10 h-10 border-3 border-brand-500 border-t-transparent rounded-full animate-spin" />
-          <p className="text-sm font-medium">Loading SkillPath AI...</p>
+          <div className="w-10 h-10 border-2 border-white border-t-transparent rounded-full animate-spin" />
+          <p className="text-sm font-medium text-neutral-400">Loading SkillPath AI...</p>
         </div>
       </div>
     );
@@ -123,23 +123,24 @@ export function App() {
         toastOptions={{
           duration: 4000,
           style: {
-            background: '#1a1d27',
-            color: '#f3f4f6',
-            border: '1px solid #2a2d3a',
+            background: '#141414',
+            color: '#FFFFFF',
+            border: '1px solid #292929',
             borderRadius: '0.75rem',
-            boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5)',
+            boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.5)',
             fontSize: '0.875rem',
+            fontFamily: 'Inter, sans-serif',
           },
           success: {
             iconTheme: {
-              primary: '#10b981',
-              secondary: '#1a1d27',
+              primary: '#FFFFFF',
+              secondary: '#141414',
             },
           },
           error: {
             iconTheme: {
-              primary: '#ef4444',
-              secondary: '#1a1d27',
+              primary: '#EF4444',
+              secondary: '#141414',
             },
           },
         }}

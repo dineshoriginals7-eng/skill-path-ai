@@ -4,22 +4,22 @@ import toast from 'react-hot-toast';
 import {
   Brain,
   Cpu,
-  BarChart3,
   Layers,
-  Monitor,
   Server,
   Smartphone,
   Shield,
   Cloud,
   PenTool,
+  BarChart3,
+  Monitor,
   Plus,
   Check,
+  CheckCircle2,
   Sparkles,
   ArrowRight,
   Compass,
-  X,
   Bot,
-  CheckCircle2
+  X
 } from 'lucide-react';
 import api from '../../services/api';
 
@@ -28,9 +28,6 @@ interface InterestCard {
   name: string;
   description: string;
   icon: React.ComponentType<{ className?: string }>;
-  color: string;
-  borderColor: string;
-  bgActive: string;
 }
 
 const INTERESTS: InterestCard[] = [
@@ -39,99 +36,66 @@ const INTERESTS: InterestCard[] = [
     name: 'Artificial Intelligence',
     description: 'LLMs, AI agents, neural network architectures, and cognitive systems.',
     icon: Brain,
-    color: 'text-purple-400',
-    borderColor: 'border-purple-500/40',
-    bgActive: 'bg-purple-500/10',
   },
   {
     id: 'ml',
     name: 'Machine Learning',
     description: 'Predictive modeling, supervised & unsupervised learning, and ML pipelines.',
     icon: Cpu,
-    color: 'text-violet-400',
-    borderColor: 'border-violet-500/40',
-    bgActive: 'bg-violet-500/10',
   },
   {
     id: 'data-science',
     name: 'Data Science',
     description: 'Statistical analytics, big data transformation, exploratory visualization, and insights.',
     icon: BarChart3,
-    color: 'text-blue-400',
-    borderColor: 'border-blue-500/40',
-    bgActive: 'bg-blue-500/10',
   },
   {
     id: 'full-stack',
     name: 'Full Stack Development',
     description: 'End-to-end web apps combining modern frontends with resilient APIs and databases.',
     icon: Layers,
-    color: 'text-indigo-400',
-    borderColor: 'border-indigo-500/40',
-    bgActive: 'bg-indigo-500/10',
   },
   {
     id: 'frontend',
     name: 'Frontend Development',
     description: 'High-performance interactive UIs, React 19, Tailwind, state models, and design systems.',
     icon: Monitor,
-    color: 'text-cyan-400',
-    borderColor: 'border-cyan-500/40',
-    bgActive: 'bg-cyan-500/10',
   },
   {
     id: 'backend',
     name: 'Backend Development',
     description: 'Fast asynchronous APIs, microservices, distributed caching, and DB indexing.',
     icon: Server,
-    color: 'text-teal-400',
-    borderColor: 'border-teal-500/40',
-    bgActive: 'bg-teal-500/10',
   },
   {
     id: 'mobile',
     name: 'App Development',
     description: 'Cross-platform native iOS & Android applications with React Native and Flutter.',
     icon: Smartphone,
-    color: 'text-emerald-400',
-    borderColor: 'border-emerald-500/40',
-    bgActive: 'bg-emerald-500/10',
   },
   {
     id: 'security',
     name: 'Cybersecurity',
     description: 'Threat hunting, vulnerability auditing, secure code analysis, and infrastructure defense.',
     icon: Shield,
-    color: 'text-red-400',
-    borderColor: 'border-red-500/40',
-    bgActive: 'bg-red-500/10',
   },
   {
     id: 'cloud',
     name: 'Cloud Computing',
     description: 'Kubernetes orchestration, AWS/GCP serverless, Terraform, and DevOps deployment.',
     icon: Cloud,
-    color: 'text-sky-400',
-    borderColor: 'border-sky-500/40',
-    bgActive: 'bg-sky-500/10',
   },
   {
     id: 'uiux',
     name: 'UI/UX Design',
     description: 'Product design, usability testing, Figma component systems, and design tokens.',
     icon: PenTool,
-    color: 'text-pink-400',
-    borderColor: 'border-pink-500/40',
-    bgActive: 'bg-pink-500/10',
   },
   {
     id: 'other',
     name: 'Other Emerging Tech',
     description: 'WebAssembly, quantum computing algorithms, embedded systems, and robotics.',
     icon: Plus,
-    color: 'text-gray-400',
-    borderColor: 'border-gray-500/40',
-    bgActive: 'bg-gray-500/10',
   },
 ];
 
@@ -292,28 +256,24 @@ export const InterestsPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#0b0d13] text-gray-100 flex flex-col font-sans relative selection:bg-indigo-500/30">
-      {/* Background glow highlights */}
-      <div className="absolute top-0 right-1/4 w-[600px] h-[400px] rounded-full bg-indigo-600/10 blur-[130px] pointer-events-none" />
-      <div className="absolute bottom-0 left-1/4 w-[600px] h-[400px] rounded-full bg-violet-600/10 blur-[130px] pointer-events-none" />
-
+    <div className="min-h-screen bg-[#090909] text-white flex flex-col font-body relative">
       {/* Top Header */}
-      <header className="border-b border-gray-800/80 bg-[#0e111a]/80 backdrop-blur-md sticky top-0 z-20">
+      <header className="border-b border-[#292929] bg-[#141414]/90 backdrop-blur-md sticky top-0 z-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="h-9 w-9 rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-500 flex items-center justify-center shadow-lg shadow-indigo-500/20">
-              <Brain className="h-5 w-5 text-white" />
+            <div className="h-9 w-9 rounded-xl bg-white text-black flex items-center justify-center font-bold">
+              <Brain className="h-5 w-5 text-black" />
             </div>
             <div>
-              <span className="text-base font-bold text-white tracking-tight">
-                SkillPath <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-violet-400">AI</span>
+              <span className="text-base font-bold font-heading text-white tracking-tight">
+                SkillPath AI
               </span>
-              <span className="block text-[10px] text-gray-400 font-mono">DOMAIN DISCOVERY</span>
+              <span className="block text-[10px] text-[#A1A1AA] font-mono">DOMAIN DISCOVERY</span>
             </div>
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="text-xs text-gray-400 hidden sm:inline">
+            <span className="text-xs text-[#A1A1AA] hidden sm:inline">
               Selected: <span className="text-white font-semibold">{selectedIds.length}</span> categories
             </span>
           </div>
@@ -324,33 +284,33 @@ export const InterestsPage: React.FC = () => {
       <main className="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 py-8 sm:py-12">
         {/* Headings */}
         <div className="text-center max-w-2xl mx-auto mb-10">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 mb-3">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white/10 text-white border border-white/20 mb-3">
             <Sparkles className="w-3.5 h-3.5" /> Curate Your Focus
           </span>
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          <h1 className="text-3xl sm:text-4xl font-extrabold font-heading text-white tracking-tight">
             What would you like to learn?
           </h1>
-          <p className="text-sm text-gray-400 mt-2.5">
+          <p className="text-sm text-[#A1A1AA] mt-2.5">
             Select all that interest you. You can change these anytime or let AI suggest tracks based on your strengths.
           </p>
         </div>
 
         {/* Primary Interest Picker Banner */}
         {selectedIds.length > 0 && (
-          <div className="max-w-xl mx-auto mb-8 p-3.5 sm:p-4 rounded-2xl bg-[#141724]/90 border border-indigo-500/30 backdrop-blur-md flex flex-col sm:flex-row items-center justify-between gap-3 shadow-lg shadow-indigo-950/20">
-            <div className="flex items-center gap-2 text-xs text-gray-300">
-              <Sparkles className="w-4 h-4 text-indigo-400 shrink-0" />
+          <div className="max-w-xl mx-auto mb-8 p-3.5 sm:p-4 rounded-2xl bg-[#141414] border border-[#292929] flex flex-col sm:flex-row items-center justify-between gap-3 shadow-sm">
+            <div className="flex items-center gap-2 text-xs text-white">
+              <Sparkles className="w-4 h-4 text-white shrink-0" />
               <span>Set as primary focus:</span>
             </div>
             <select
               value={primaryInterest}
               onChange={(e) => setPrimaryInterest(e.target.value)}
-              className="w-full sm:w-auto px-3.5 py-1.5 bg-[#1b1f2e] border border-gray-700 rounded-xl text-xs font-semibold text-indigo-300 focus:outline-none focus:border-indigo-400 cursor-pointer"
+              className="w-full sm:w-auto px-3.5 py-1.5 bg-[#171717] border border-[#292929] rounded-xl text-xs font-semibold text-white focus:outline-none focus:border-white cursor-pointer"
             >
               {selectedIds.map((id) => {
                 const item = INTERESTS.find((i) => i.id === id);
                 return (
-                  <option key={id} value={id}>
+                  <option key={id} value={id} className="bg-[#141414] text-white">
                     {item?.name}
                   </option>
                 );
@@ -372,19 +332,19 @@ export const InterestsPage: React.FC = () => {
                 onClick={() => toggleInterest(card.id)}
                 className={`relative p-5 sm:p-6 rounded-2xl border transition-all duration-200 cursor-pointer select-none group ${
                   isSelected
-                    ? `${card.borderColor} ${card.bgActive} shadow-lg shadow-indigo-950/30 scale-[1.01]`
-                    : 'border-gray-800/80 bg-[#121522]/80 hover:border-gray-700 hover:bg-[#151827]'
+                    ? 'border-white bg-[#171717] shadow-sm'
+                    : 'border-[#292929] bg-[#141414] hover:border-neutral-500 hover:bg-[#171717]'
                 }`}
               >
                 {/* Active Checkmark Pill */}
                 {isSelected && (
                   <div className="absolute top-4 right-4 flex items-center gap-1.5">
                     {isPrimary && (
-                      <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-indigo-500 text-white">
+                      <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-white text-black">
                         Primary
                       </span>
                     )}
-                    <div className="w-6 h-6 rounded-full bg-gradient-to-tr from-indigo-500 to-violet-500 flex items-center justify-center text-white shadow-md">
+                    <div className="w-6 h-6 rounded-full bg-white flex items-center justify-center text-black shadow-sm">
                       <Check className="w-3.5 h-3.5" />
                     </div>
                   </div>
@@ -393,16 +353,16 @@ export const InterestsPage: React.FC = () => {
                 {/* Card Icon */}
                 <div
                   className={`w-11 h-11 rounded-xl flex items-center justify-center mb-4 transition-transform group-hover:scale-105 ${
-                    isSelected ? 'bg-indigo-500/20 ' + card.color : 'bg-[#181c2b] text-gray-400'
+                    isSelected ? 'bg-white text-black' : 'bg-[#171717] border border-[#292929] text-white'
                   }`}
                 >
                   <Icon className="w-5 h-5" />
                 </div>
 
-                <h3 className="text-base font-bold text-white mb-1.5 tracking-tight">
+                <h3 className="text-base font-bold font-heading text-white mb-1.5 tracking-tight">
                   {card.name}
                 </h3>
-                <p className="text-xs text-gray-400 leading-relaxed">
+                <p className="text-xs text-[#A1A1AA] leading-relaxed">
                   {card.description}
                 </p>
               </div>
@@ -411,12 +371,12 @@ export const InterestsPage: React.FC = () => {
         </div>
 
         {/* Action Toolbar */}
-        <div className="max-w-2xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-3 pt-4 border-t border-gray-800">
+        <div className="max-w-2xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-3 pt-4 border-t border-[#292929]">
           <button
             type="button"
             onClick={handleSaveAndStart}
             disabled={isSubmitting || selectedIds.length === 0}
-            className="w-full sm:w-auto px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-600 via-indigo-500 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white font-semibold text-xs shadow-lg shadow-indigo-600/30 transition-all flex items-center justify-center gap-2 group disabled:opacity-50"
+            className="w-full sm:w-auto px-6 py-3 rounded-xl bg-white hover:bg-neutral-200 text-black font-semibold text-xs shadow-sm transition-all flex items-center justify-center gap-2 group disabled:opacity-50"
           >
             <span>Start Learning ({selectedIds.length})</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -425,9 +385,9 @@ export const InterestsPage: React.FC = () => {
           <button
             type="button"
             onClick={() => navigate('/career-match')}
-            className="w-full sm:w-auto px-5 py-3 rounded-xl bg-[#141724] hover:bg-[#191d2d] border border-gray-800 text-gray-300 font-semibold text-xs transition-colors flex items-center justify-center gap-2"
+            className="w-full sm:w-auto px-5 py-3 rounded-xl bg-[#171717] hover:bg-[#222222] border border-[#292929] text-white font-semibold text-xs transition-colors flex items-center justify-center gap-2"
           >
-            <Compass className="w-4 h-4 text-indigo-400" />
+            <Compass className="w-4 h-4 text-white" />
             <span>Choose a Career Goal</span>
           </button>
 
@@ -439,9 +399,9 @@ export const InterestsPage: React.FC = () => {
               setAnswers([]);
               setAiRecommendation(null);
             }}
-            className="w-full sm:w-auto px-5 py-3 rounded-xl bg-violet-950/40 hover:bg-violet-900/40 border border-violet-800/50 text-violet-300 font-semibold text-xs transition-colors flex items-center justify-center gap-2"
+            className="w-full sm:w-auto px-5 py-3 rounded-xl bg-[#171717] hover:bg-[#222222] border border-[#292929] text-white font-semibold text-xs transition-colors flex items-center justify-center gap-2"
           >
-            <Bot className="w-4 h-4 text-violet-400" />
+            <Bot className="w-4 h-4 text-white" />
             <span>Discover My Interests with AI</span>
           </button>
         </div>
@@ -449,29 +409,29 @@ export const InterestsPage: React.FC = () => {
 
       {/* AI Questionnaire Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fade-in font-sans">
-          <div className="bg-[#121522] border border-gray-800 rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fade-in font-body">
+          <div className="bg-[#141414] border border-[#292929] rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative">
             <button
               onClick={() => setIsModalOpen(false)}
-              className="absolute top-4 right-4 text-gray-400 hover:text-white p-1"
+              className="absolute top-4 right-4 text-[#A1A1AA] hover:text-white p-1"
             >
               <X className="w-5 h-5" />
             </button>
 
             {!aiRecommendation ? (
               <div>
-                <div className="flex items-center gap-2 text-xs font-semibold text-violet-400 uppercase tracking-wider mb-2">
+                <div className="flex items-center gap-2 text-xs font-semibold text-white uppercase tracking-wider mb-2">
                   <Bot className="w-4 h-4" /> AI Persona Calibrator &bull; Question {quizStep + 1} of 5
                 </div>
 
-                <div className="w-full bg-gray-800 h-1.5 rounded-full mb-6">
+                <div className="w-full bg-[#171717] h-1.5 rounded-full mb-6 border border-[#292929]">
                   <div
-                    className="bg-violet-500 h-1.5 rounded-full transition-all duration-300"
+                    className="bg-white h-1.5 rounded-full transition-all duration-300"
                     style={{ width: `${((quizStep + 1) / AI_QUESTIONS.length) * 100}%` }}
                   />
                 </div>
 
-                <h3 className="text-lg font-bold text-white mb-5 leading-snug">
+                <h3 className="text-lg font-bold font-heading text-white mb-5 leading-snug">
                   {AI_QUESTIONS[quizStep].question}
                 </h3>
 
@@ -481,12 +441,12 @@ export const InterestsPage: React.FC = () => {
                       key={idx}
                       type="button"
                       onClick={() => handleAnswerQuestion(opt.recommended)}
-                      className="w-full p-4 rounded-xl bg-[#171b29] hover:bg-violet-950/30 border border-gray-800 hover:border-violet-500/40 text-left transition-all flex items-center gap-3.5 group"
+                      className="w-full p-4 rounded-xl bg-[#171717] hover:bg-[#222222] border border-[#292929] hover:border-neutral-500 text-left transition-all flex items-center gap-3.5 group"
                     >
                       <span className="text-2xl group-hover:scale-110 transition-transform">
                         {opt.emoji}
                       </span>
-                      <span className="text-xs sm:text-sm font-medium text-gray-200 group-hover:text-white">
+                      <span className="text-xs sm:text-sm font-medium text-white">
                         {opt.text}
                       </span>
                     </button>
@@ -495,14 +455,14 @@ export const InterestsPage: React.FC = () => {
               </div>
             ) : (
               <div className="text-center py-2">
-                <div className="w-14 h-14 mx-auto rounded-2xl bg-violet-500/15 border border-violet-500/30 text-violet-400 flex items-center justify-center mb-4">
+                <div className="w-14 h-14 mx-auto rounded-2xl bg-[#171717] border border-[#292929] text-white flex items-center justify-center mb-4">
                   <Sparkles className="w-7 h-7" />
                 </div>
-                <h3 className="text-xl font-bold text-white">AI Recommendation</h3>
-                <div className="inline-block my-3 px-4 py-1.5 rounded-xl bg-violet-500/20 border border-violet-500/30 text-violet-300 font-bold text-sm">
+                <h3 className="text-xl font-bold font-heading text-white">AI Recommendation</h3>
+                <div className="inline-block my-3 px-4 py-1.5 rounded-xl bg-white/10 border border-white/20 text-white font-bold text-sm">
                   {aiRecommendation.role}
                 </div>
-                <p className="text-xs text-gray-300 leading-relaxed mb-6">
+                <p className="text-xs text-[#A1A1AA] leading-relaxed mb-6">
                   {aiRecommendation.reasoning}
                 </p>
 
@@ -510,7 +470,7 @@ export const InterestsPage: React.FC = () => {
                   <button
                     type="button"
                     onClick={handleApplyRecommendation}
-                    className="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white font-semibold text-xs shadow-lg shadow-indigo-600/30 transition-all flex items-center justify-center gap-1.5"
+                    className="flex-1 py-3 px-4 rounded-xl bg-white hover:bg-neutral-200 text-black font-semibold text-xs shadow-sm transition-all flex items-center justify-center gap-1.5"
                   >
                     <CheckCircle2 className="w-4 h-4" />
                     <span>Apply & Set as Primary</span>
@@ -518,7 +478,7 @@ export const InterestsPage: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => setIsModalOpen(false)}
-                    className="px-4 py-3 rounded-xl border border-gray-800 hover:bg-gray-800/50 text-gray-400 text-xs font-semibold"
+                    className="px-4 py-3 rounded-xl border border-[#292929] hover:bg-[#171717] text-[#A1A1AA] text-xs font-semibold"
                   >
                     Close
                   </button>

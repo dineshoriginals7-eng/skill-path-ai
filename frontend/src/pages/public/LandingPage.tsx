@@ -1,34 +1,26 @@
-import { BrainCircuit, Zap, Target, TrendingUp, ChevronRight, Star, Users, BookOpen, Award } from 'lucide-react';
+import { BrainCircuit, Zap, Target, TrendingUp, ChevronRight, BookOpen, Award } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const features = [
   {
-    icon: <BrainCircuit className="w-6 h-6" />,
+    icon: <BrainCircuit className="w-5 h-5 text-white" />,
     title: "AI-Powered Assessment",
     description: "Adaptive examinations that evaluate your real knowledge — not just what you think you know.",
-    color: "text-brand-400",
-    bg: "bg-brand-500/10",
   },
   {
-    icon: <Target className="w-6 h-6" />,
+    icon: <Target className="w-5 h-5 text-white" />,
     title: "Skill Gap Analysis",
     description: "Precise identification of strengths, weaknesses, and missing skills for your career goals.",
-    color: "text-violet-400",
-    bg: "bg-violet-500/10",
   },
   {
-    icon: <TrendingUp className="w-6 h-6" />,
+    icon: <TrendingUp className="w-5 h-5 text-white" />,
     title: "Adaptive Roadmap",
     description: "A personalized learning path that evolves with your progress and actual performance.",
-    color: "text-success",
-    bg: "bg-success/10",
   },
   {
-    icon: <Zap className="w-6 h-6" />,
+    icon: <Zap className="w-5 h-5 text-white" />,
     title: "10 Specialized AI Agents",
     description: "A multi-agent system coordinating assessment, evaluation, mentoring, and intelligence.",
-    color: "text-warning",
-    bg: "bg-warning/10",
   },
 ];
 
@@ -49,28 +41,27 @@ const stats = [
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen bg-surface-DEFAULT text-gray-100 overflow-x-hidden">
+    <div className="min-h-screen bg-[#090909] text-white overflow-x-hidden">
       {/* Hero Section */}
       <section className="relative pt-32 pb-24 px-6 overflow-hidden">
-        {/* Background glow */}
-        <div className="absolute inset-0 bg-gradient-glow pointer-events-none" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-brand-500/5 rounded-full blur-3xl pointer-events-none" />
+        {/* Subtle monochrome radial mask */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-white/[0.03] rounded-full blur-3xl pointer-events-none" />
 
-        <div className="max-w-6xl mx-auto text-center relative">
+        <div className="max-w-5xl mx-auto text-center relative">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-brand-500/30 bg-brand-500/10 text-brand-300 text-sm font-medium mb-8 animate-fade-in">
-            <span className="w-2 h-2 rounded-full bg-brand-400 animate-pulse-soft" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#292929] bg-[#141414] text-[#A1A1AA] text-xs font-mono mb-8 animate-fade-in">
+            <span className="w-2 h-2 rounded-full bg-white" />
             Evaluation-First Learning Platform
           </div>
 
           {/* Headline */}
-          <h1 className="text-5xl md:text-7xl font-display font-bold mb-6 leading-tight animate-slide-up">
+          <h1 className="text-5xl md:text-7xl font-heading font-extrabold mb-6 tracking-tight leading-tight animate-slide-up">
             Learn What You{' '}
             <span className="gradient-text">Actually Need</span>
             <br />to Reach Your Goals
           </h1>
 
-          <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-10 leading-relaxed animate-slide-up">
+          <p className="text-lg md:text-xl text-[#A1A1AA] max-w-2xl mx-auto mb-10 leading-relaxed animate-slide-up">
             SkillPath AI evaluates your existing knowledge, identifies real skill gaps, and creates 
             a personalized learning journey — powered by 10 specialized AI agents that understand 
             you as an individual learner.
@@ -78,30 +69,30 @@ export default function LandingPage() {
 
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up">
-            <Link to="/register" className="btn-primary text-lg px-8 py-4 inline-flex items-center gap-2">
+            <Link to="/register" className="btn-primary text-base px-8 py-3.5 inline-flex items-center gap-2">
               Start Your Free Journey
-              <ChevronRight className="w-5 h-5" />
+              <ChevronRight className="w-4 h-4" />
             </Link>
-            <Link to="/how-it-works" className="btn-secondary text-lg px-8 py-4 inline-flex items-center gap-2">
-              <BookOpen className="w-5 h-5" />
+            <Link to="/how-it-works" className="btn-secondary text-base px-8 py-3.5 inline-flex items-center gap-2">
+              <BookOpen className="w-4 h-4" />
               How It Works
             </Link>
           </div>
 
           {/* Demo note */}
-          <p className="text-sm text-gray-500 mt-6">
+          <p className="text-xs text-[#71717A] mt-6 font-mono">
             No credit card required · Full demo mode available · Start in 2 minutes
           </p>
         </div>
       </section>
 
       {/* Stats */}
-      <section className="border-y border-surface-border py-10 px-6">
+      <section className="border-y border-[#292929] bg-[#090909] py-12 px-6">
         <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((stat) => (
             <div key={stat.label} className="text-center">
-              <div className="text-3xl font-display font-bold gradient-text mb-1">{stat.value}</div>
-              <div className="text-sm text-gray-400">{stat.label}</div>
+              <div className="text-4xl font-heading font-extrabold text-white mb-1 tracking-tight">{stat.value}</div>
+              <div className="text-xs font-mono uppercase tracking-wider text-[#A1A1AA]">{stat.label}</div>
             </div>
           ))}
         </div>
@@ -111,22 +102,22 @@ export default function LandingPage() {
       <section className="py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
+            <h2 className="text-3xl md:text-5xl font-heading font-bold mb-4 tracking-tight">
               Built for <span className="gradient-text">Intelligent Learning</span>
             </h2>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+            <p className="text-[#A1A1AA] text-base max-w-xl mx-auto">
               Every feature is designed around one principle: understand the learner first, then guide them.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
             {features.map((f, i) => (
-              <div key={i} className="card-hover p-6 rounded-2xl">
-                <div className={`w-12 h-12 rounded-xl ${f.bg} flex items-center justify-center ${f.color} mb-4`}>
+              <div key={i} className="card p-7 card-hover">
+                <div className="w-10 h-10 rounded-xl bg-white/5 border border-[#292929] flex items-center justify-center mb-4">
                   {f.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-2">{f.title}</h3>
-                <p className="text-gray-400 leading-relaxed">{f.description}</p>
+                <h3 className="text-lg font-heading font-bold text-white mb-2">{f.title}</h3>
+                <p className="text-sm text-[#A1A1AA] leading-relaxed">{f.description}</p>
               </div>
             ))}
           </div>
@@ -134,23 +125,23 @@ export default function LandingPage() {
       </section>
 
       {/* How It Works */}
-      <section className="py-24 px-6 bg-surface-100/30">
+      <section className="py-24 px-6 bg-[#141414] border-y border-[#292929]">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
+            <h2 className="text-3xl md:text-5xl font-heading font-bold mb-4 tracking-tight">
               Your Learning <span className="gradient-text">Journey</span>
             </h2>
           </div>
 
           <div className="space-y-6">
             {steps.map((s, i) => (
-              <div key={i} className="flex gap-6 items-start group">
-                <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-gradient-brand flex items-center justify-center font-display font-bold text-white text-lg group-hover:shadow-glow-sm transition-shadow">
+              <div key={i} className="flex gap-6 items-start p-6 rounded-2xl bg-[#171717] border border-[#292929] hover:border-neutral-500 transition-all">
+                <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-white text-black flex items-center justify-center font-heading font-extrabold text-sm shadow-sm">
                   {s.step}
                 </div>
-                <div className="pt-2">
-                  <h3 className="text-xl font-semibold text-white mb-1">{s.title}</h3>
-                  <p className="text-gray-400">{s.desc}</p>
+                <div className="pt-1">
+                  <h3 className="text-lg font-heading font-bold text-white mb-1">{s.title}</h3>
+                  <p className="text-sm text-[#A1A1AA]">{s.desc}</p>
                 </div>
               </div>
             ))}
@@ -161,25 +152,24 @@ export default function LandingPage() {
       {/* AI Agents Callout */}
       <section className="py-24 px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="relative rounded-3xl border border-brand-500/20 bg-gradient-card p-10 md:p-16 overflow-hidden">
-            <div className="absolute top-0 right-0 w-96 h-96 bg-brand-500/5 rounded-full blur-3xl" />
+          <div className="relative rounded-3xl border border-[#292929] bg-[#141414] p-10 md:p-16 overflow-hidden">
             <div className="relative">
-              <div className="flex items-center gap-3 mb-6">
-                <BrainCircuit className="w-8 h-8 text-brand-400" />
-                <span className="text-brand-300 font-semibold">Multi-Agent AI Architecture</span>
+              <div className="flex items-center gap-2.5 mb-4">
+                <BrainCircuit className="w-5 h-5 text-white" />
+                <span className="text-xs font-mono uppercase tracking-wider text-[#A1A1AA]">Multi-Agent AI Architecture</span>
               </div>
-              <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-6">
+              <h2 className="text-3xl md:text-5xl font-heading font-bold text-white mb-4 tracking-tight">
                 10 Specialized AI Agents<br />Working For You
               </h2>
-              <p className="text-gray-400 text-lg mb-8 max-w-2xl">
+              <p className="text-[#A1A1AA] text-base mb-8 max-w-2xl leading-relaxed">
                 From interest discovery to document analysis, skill assessment to career matching — 
                 each agent has a defined role and communicates through structured data, not generic chat.
               </p>
-              <div className="flex flex-wrap gap-3 mb-8">
+              <div className="flex flex-wrap gap-2.5 mb-10">
                 {["Interest Discovery", "Document Analysis", "Assessment Generation", "Evaluation", 
                   "Skill Gap Analysis", "Career Matching", "Roadmap Builder", "AI Mentor", 
                   "Progress Analysis", "Learner Intelligence"].map((agent) => (
-                  <span key={agent} className="px-3 py-1 rounded-full bg-brand-500/15 border border-brand-500/25 text-brand-300 text-sm">
+                  <span key={agent} className="px-3 py-1 rounded-full bg-[#171717] border border-[#292929] text-[#A1A1AA] text-xs font-mono">
                     {agent}
                   </span>
                 ))}
@@ -194,18 +184,18 @@ export default function LandingPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 px-6 text-center">
+      <section className="py-24 px-6 text-center border-t border-[#292929]">
         <div className="max-w-2xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">
+          <h2 className="text-3xl md:text-5xl font-heading font-bold mb-6 tracking-tight">
             Ready to Understand<br />
             <span className="gradient-text">Your True Skill Level?</span>
           </h2>
-          <p className="text-gray-400 text-lg mb-8">
+          <p className="text-[#A1A1AA] text-base mb-8 leading-relaxed">
             Join SkillPath AI and get an honest, evidence-based picture of where you are — 
             and a clear path to where you want to go.
           </p>
-          <Link to="/register" className="btn-primary text-lg px-10 py-4 inline-flex items-center gap-2">
-            <Award className="w-5 h-5" />
+          <Link to="/register" className="btn-primary text-base px-8 py-3.5 inline-flex items-center gap-2">
+            <Award className="w-4 h-4" />
             Start Free Assessment
           </Link>
         </div>

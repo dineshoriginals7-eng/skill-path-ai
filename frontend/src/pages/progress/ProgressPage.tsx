@@ -135,19 +135,19 @@ export const ProgressPage: React.FC = () => {
   const currentHours = STUDY_HOURS_DATA[timeRange];
 
   return (
-    <div className="max-w-6xl mx-auto space-y-7 pb-16 font-sans animate-fade-in text-gray-100">
+    <div className="max-w-6xl mx-auto space-y-7 pb-16 font-body animate-fade-in text-white">
       {/* Top Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-gray-800/80 pb-5">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#292929] pb-5">
         <div>
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-violet-500 flex items-center justify-center text-white shadow-lg shadow-indigo-600/20">
-              <TrendingUp className="w-5 h-5" />
+            <div className="w-10 h-10 rounded-xl bg-[#171717] border border-[#292929] flex items-center justify-center text-white">
+              <TrendingUp className="w-5 h-5 text-white" />
             </div>
             <div>
-              <h1 className="text-2xl font-bold font-display text-white tracking-tight">
+              <h1 className="text-2xl font-bold font-heading text-white tracking-tight">
                 Learning Velocity & Progress Telemetry
               </h1>
-              <p className="text-xs sm:text-sm text-gray-400">
+              <p className="text-xs sm:text-sm text-[#A1A1AA]">
                 Data-driven tracking of score calibrations, study consistency, and competency growth
               </p>
             </div>
@@ -155,15 +155,15 @@ export const ProgressPage: React.FC = () => {
         </div>
 
         {/* Time Range Filter Controls */}
-        <div className="flex items-center gap-1.5 p-1 rounded-xl bg-[#121522] border border-gray-800 self-start sm:self-auto">
+        <div className="flex items-center gap-1.5 p-1 rounded-xl bg-[#141414] border border-[#292929] self-start sm:self-auto">
           {(['7d', '30d', '3m', 'all'] as TimeRange[]).map((range) => (
             <button
               key={range}
               onClick={() => setTimeRange(range)}
               className={`px-3 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all ${
                 timeRange === range
-                  ? 'bg-gradient-to-r from-indigo-600 to-violet-600 text-white shadow-md shadow-indigo-600/30'
-                  : 'text-gray-400 hover:text-white hover:bg-gray-800/50'
+                  ? 'bg-white text-black shadow-sm'
+                  : 'text-[#A1A1AA] hover:text-white hover:bg-[#171717]'
               }`}
             >
               {range}
@@ -175,54 +175,54 @@ export const ProgressPage: React.FC = () => {
       {/* KPI Highlight Strip */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {/* Study Streak */}
-        <div className="bg-[#121522] border border-gray-800/90 rounded-2xl p-4.5 shadow-md flex items-center gap-3.5">
-          <div className="w-11 h-11 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center shrink-0">
-            <Flame className="w-6 h-6 animate-pulse" />
+        <div className="bg-[#141414] border border-[#292929] rounded-2xl p-4.5 flex items-center gap-3.5">
+          <div className="w-11 h-11 rounded-xl bg-[#171717] border border-[#292929] text-white flex items-center justify-center shrink-0">
+            <Flame className="w-6 h-6" />
           </div>
           <div>
-            <div className="text-2xl font-display font-bold text-white flex items-center gap-1">
-              14 <span className="text-xs font-medium text-amber-400">Days</span>
+            <div className="text-2xl font-heading font-bold text-white flex items-center gap-1">
+              14 <span className="text-xs font-medium text-[#A1A1AA]">Days</span>
             </div>
-            <div className="text-[11px] text-gray-400 font-medium uppercase tracking-wide">Active Learning Streak</div>
+            <div className="text-[11px] text-[#A1A1AA] font-medium uppercase tracking-wide">Active Learning Streak</div>
           </div>
         </div>
 
         {/* Study Hours */}
-        <div className="bg-[#121522] border border-gray-800/90 rounded-2xl p-4.5 shadow-md flex items-center gap-3.5">
-          <div className="w-11 h-11 rounded-xl bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 flex items-center justify-center shrink-0">
+        <div className="bg-[#141414] border border-[#292929] rounded-2xl p-4.5 flex items-center gap-3.5">
+          <div className="w-11 h-11 rounded-xl bg-[#171717] border border-[#292929] text-white flex items-center justify-center shrink-0">
             <Clock className="w-6 h-6" />
           </div>
           <div>
-            <div className="text-2xl font-display font-bold text-white flex items-center gap-1">
-              19.5 <span className="text-xs font-medium text-indigo-400">Hrs</span>
+            <div className="text-2xl font-heading font-bold text-white flex items-center gap-1">
+              19.5 <span className="text-xs font-medium text-[#A1A1AA]">Hrs</span>
             </div>
-            <div className="text-[11px] text-gray-400 font-medium uppercase tracking-wide">Weekly Active Time</div>
+            <div className="text-[11px] text-[#A1A1AA] font-medium uppercase tracking-wide">Weekly Active Time</div>
           </div>
         </div>
 
         {/* Score Velocity */}
-        <div className="bg-[#121522] border border-gray-800/90 rounded-2xl p-4.5 shadow-md flex items-center gap-3.5">
-          <div className="w-11 h-11 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center shrink-0">
+        <div className="bg-[#141414] border border-[#292929] rounded-2xl p-4.5 flex items-center gap-3.5">
+          <div className="w-11 h-11 rounded-xl bg-[#171717] border border-[#292929] text-white flex items-center justify-center shrink-0">
             <Zap className="w-6 h-6" />
           </div>
           <div>
-            <div className="text-2xl font-display font-bold text-emerald-400 flex items-center gap-1">
+            <div className="text-2xl font-heading font-bold text-white flex items-center gap-1">
               +14.2%
             </div>
-            <div className="text-[11px] text-gray-400 font-medium uppercase tracking-wide">Score Calibration Delta</div>
+            <div className="text-[11px] text-[#A1A1AA] font-medium uppercase tracking-wide">Score Calibration Delta</div>
           </div>
         </div>
 
         {/* Career Readiness */}
-        <div className="bg-[#121522] border border-gray-800/90 rounded-2xl p-4.5 shadow-md flex items-center gap-3.5">
-          <div className="w-11 h-11 rounded-xl bg-violet-500/10 border border-violet-500/30 text-violet-400 flex items-center justify-center shrink-0">
+        <div className="bg-[#141414] border border-[#292929] rounded-2xl p-4.5 flex items-center gap-3.5">
+          <div className="w-11 h-11 rounded-xl bg-[#171717] border border-[#292929] text-white flex items-center justify-center shrink-0">
             <Award className="w-6 h-6" />
           </div>
           <div>
-            <div className="text-2xl font-display font-bold text-white">
+            <div className="text-2xl font-heading font-bold text-white">
               {stats.career_readiness_score}%
             </div>
-            <div className="text-[11px] text-gray-400 font-medium uppercase tracking-wide truncate max-w-[130px]">
+            <div className="text-[11px] text-[#A1A1AA] font-medium uppercase tracking-wide truncate max-w-[130px]">
               {stats.career_readiness_label}
             </div>
           </div>
@@ -232,16 +232,16 @@ export const ProgressPage: React.FC = () => {
       {/* Main Visualizations Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* CHART 1: Assessment Score Progression Velocity */}
-        <div className="bg-[#121522] border border-gray-800/90 rounded-2xl p-5 shadow-lg flex flex-col justify-between">
+        <div className="bg-[#141414] border border-[#292929] rounded-2xl p-5 flex flex-col justify-between">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h2 className="text-base font-bold text-white flex items-center gap-2">
-                <BarChart3 className="w-4 h-4 text-indigo-400" />
+              <h2 className="text-base font-bold font-heading text-white flex items-center gap-2">
+                <BarChart3 className="w-4 h-4 text-white" />
                 Assessment Score Velocity
               </h2>
-              <p className="text-xs text-gray-400">Score improvement trajectory across verified evaluations</p>
+              <p className="text-xs text-[#A1A1AA]">Score improvement trajectory across verified evaluations</p>
             </div>
-            <span className="text-[11px] px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-semibold">
+            <span className="text-[11px] px-2.5 py-0.5 rounded-full bg-white/10 text-white border border-white/20 font-semibold">
               Steady Gain
             </span>
           </div>
@@ -251,17 +251,17 @@ export const ProgressPage: React.FC = () => {
               <AreaChart data={currentVelocity} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
                 <defs>
                   <linearGradient id="scoreVelocityGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#6366f1" stopOpacity={0.4} />
-                    <stop offset="95%" stopColor="#6366f1" stopOpacity={0.0} />
+                    <stop offset="5%" stopColor="#ffffff" stopOpacity={0.25} />
+                    <stop offset="95%" stopColor="#ffffff" stopOpacity={0.0} />
                   </linearGradient>
                 </defs>
-                <CartesianGrid strokeDasharray="3 3" stroke="#1f2438" vertical={false} />
-                <XAxis dataKey="date" stroke="#6b7280" fontSize={11} tickLine={false} />
-                <YAxis domain={[50, 100]} stroke="#6b7280" fontSize={11} tickLine={false} />
+                <CartesianGrid strokeDasharray="3 3" stroke="#292929" vertical={false} />
+                <XAxis dataKey="date" stroke="#71717A" fontSize={11} tickLine={false} />
+                <YAxis domain={[50, 100]} stroke="#71717A" fontSize={11} tickLine={false} />
                 <Tooltip
                   contentStyle={{
-                    backgroundColor: '#161a2b',
-                    borderColor: '#2a314d',
+                    backgroundColor: '#141414',
+                    borderColor: '#292929',
                     borderRadius: '0.75rem',
                     fontSize: '12px',
                     color: '#fff',
@@ -271,15 +271,15 @@ export const ProgressPage: React.FC = () => {
                 <Area
                   type="monotone"
                   dataKey="score"
-                  stroke="#818cf8"
-                  strokeWidth={2.5}
+                  stroke="#ffffff"
+                  strokeWidth={2}
                   fillOpacity={1}
                   fill="url(#scoreVelocityGrad)"
                 />
                 <Area
                   type="monotone"
                   dataKey="benchmark"
-                  stroke="#10b981"
+                  stroke="#71717A"
                   strokeDasharray="4 4"
                   strokeWidth={1.5}
                   fill="none"
@@ -288,16 +288,16 @@ export const ProgressPage: React.FC = () => {
             </ResponsiveContainer>
           </div>
 
-          <div className="pt-3 border-t border-gray-800/80 flex items-center justify-between text-[11px] text-gray-400">
+          <div className="pt-3 border-t border-[#292929] flex items-center justify-between text-[11px] text-[#A1A1AA]">
             <div className="flex items-center gap-3">
               <span className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-indigo-500 inline-block" /> Learner Performance
+                <span className="w-2.5 h-2.5 rounded-full bg-white inline-block" /> Learner Performance
               </span>
               <span className="flex items-center gap-1.5">
-                <span className="w-2.5 h-1 bg-emerald-500 inline-block" /> Job Readiness Target (75%)
+                <span className="w-2.5 h-1 bg-[#71717A] inline-block" /> Job Readiness Target (75%)
               </span>
             </div>
-            <Link to="/assessment" className="text-indigo-400 hover:text-indigo-300 font-semibold flex items-center gap-1">
+            <Link to="/assessment" className="text-white hover:text-neutral-300 font-semibold flex items-center gap-1">
               <span>Take Quiz</span>
               <ArrowRight className="w-3 h-3" />
             </Link>
@@ -305,16 +305,16 @@ export const ProgressPage: React.FC = () => {
         </div>
 
         {/* CHART 2: Study Consistency & Daily Hours Logged */}
-        <div className="bg-[#121522] border border-gray-800/90 rounded-2xl p-5 shadow-lg flex flex-col justify-between">
+        <div className="bg-[#141414] border border-[#292929] rounded-2xl p-5 flex flex-col justify-between">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h2 className="text-base font-bold text-white flex items-center gap-2">
-                <Calendar className="w-4 h-4 text-violet-400" />
+              <h2 className="text-base font-bold font-heading text-white flex items-center gap-2">
+                <Calendar className="w-4 h-4 text-white" />
                 Study Consistency & Logged Hours
               </h2>
-              <p className="text-xs text-gray-400">Time invested in practical coding exercises and modules</p>
+              <p className="text-xs text-[#A1A1AA]">Time invested in practical coding exercises and modules</p>
             </div>
-            <span className="text-[11px] px-2.5 py-0.5 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/30 font-semibold">
+            <span className="text-[11px] px-2.5 py-0.5 rounded-full bg-white/10 text-white border border-white/20 font-semibold">
               Above Target
             </span>
           </div>
@@ -322,27 +322,27 @@ export const ProgressPage: React.FC = () => {
           <div className="h-64 w-full">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={currentHours} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#1f2438" vertical={false} />
-                <XAxis dataKey="day" stroke="#6b7280" fontSize={11} tickLine={false} />
-                <YAxis stroke="#6b7280" fontSize={11} tickLine={false} />
+                <CartesianGrid strokeDasharray="3 3" stroke="#292929" vertical={false} />
+                <XAxis dataKey="day" stroke="#71717A" fontSize={11} tickLine={false} />
+                <YAxis stroke="#71717A" fontSize={11} tickLine={false} />
                 <Tooltip
                   contentStyle={{
-                    backgroundColor: '#161a2b',
-                    borderColor: '#2a314d',
+                    backgroundColor: '#141414',
+                    borderColor: '#292929',
                     borderRadius: '0.75rem',
                     fontSize: '12px',
                     color: '#fff',
                   }}
                   formatter={(val: any) => [`${val} hrs`, 'Logged Time']}
                 />
-                <Bar dataKey="hours" fill="#6366f1" radius={[6, 6, 0, 0]} />
+                <Bar dataKey="hours" fill="#ffffff" radius={[6, 6, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>
 
-          <div className="pt-3 border-t border-gray-800/80 flex items-center justify-between text-[11px] text-gray-400">
+          <div className="pt-3 border-t border-[#292929] flex items-center justify-between text-[11px] text-[#A1A1AA]">
             <span>Average: ~2.8 hrs/day across active study sessions</span>
-            <Link to="/roadmap" className="text-indigo-400 hover:text-indigo-300 font-semibold flex items-center gap-1">
+            <Link to="/roadmap" className="text-white hover:text-neutral-300 font-semibold flex items-center gap-1">
               <span>Resume Module</span>
               <ArrowRight className="w-3 h-3" />
             </Link>
@@ -350,16 +350,16 @@ export const ProgressPage: React.FC = () => {
         </div>
 
         {/* CHART 3: Competency Balance Radar Matrix */}
-        <div className="bg-[#121522] border border-gray-800/90 rounded-2xl p-5 shadow-lg">
+        <div className="bg-[#141414] border border-[#292929] rounded-2xl p-5">
           <div className="flex items-center justify-between mb-2">
             <div>
-              <h2 className="text-base font-bold text-white flex items-center gap-2">
-                <Award className="w-4 h-4 text-emerald-400" />
+              <h2 className="text-base font-bold font-heading text-white flex items-center gap-2">
+                <Award className="w-4 h-4 text-white" />
                 Competency Radar Calibration
               </h2>
-              <p className="text-xs text-gray-400">Demonstrated proficiency vs track requirements</p>
+              <p className="text-xs text-[#A1A1AA]">Demonstrated proficiency vs track requirements</p>
             </div>
-            <Link to="/skills" className="text-xs font-semibold text-indigo-400 hover:text-indigo-300 flex items-center gap-1">
+            <Link to="/skills" className="text-xs font-semibold text-white hover:text-neutral-300 flex items-center gap-1">
               <span>Skill Matrix</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
@@ -368,15 +368,15 @@ export const ProgressPage: React.FC = () => {
           <div className="h-64 w-full">
             <ResponsiveContainer width="100%" height="100%">
               <RadarChart data={SKILL_RADAR_DATA}>
-                <PolarGrid stroke="#23293f" />
-                <PolarAngleAxis dataKey="skill" stroke="#9ca3af" fontSize={11} />
-                <PolarRadiusAxis domain={[0, 100]} stroke="#4b5563" fontSize={10} />
-                <Radar name="Evaluated Score" dataKey="actual" stroke="#818cf8" fill="#6366f1" fillOpacity={0.4} />
-                <Radar name="Target Requirement" dataKey="target" stroke="#10b981" fill="#10b981" fillOpacity={0.15} />
+                <PolarGrid stroke="#292929" />
+                <PolarAngleAxis dataKey="skill" stroke="#A1A1AA" fontSize={11} />
+                <PolarRadiusAxis domain={[0, 100]} stroke="#52525B" fontSize={10} />
+                <Radar name="Evaluated Score" dataKey="actual" stroke="#ffffff" fill="#ffffff" fillOpacity={0.25} />
+                <Radar name="Target Requirement" dataKey="target" stroke="#71717A" fill="#71717A" fillOpacity={0.1} />
                 <Tooltip
                   contentStyle={{
-                    backgroundColor: '#161a2b',
-                    borderColor: '#2a314d',
+                    backgroundColor: '#141414',
+                    borderColor: '#292929',
                     borderRadius: '0.75rem',
                     fontSize: '12px',
                     color: '#fff',
@@ -386,89 +386,89 @@ export const ProgressPage: React.FC = () => {
             </ResponsiveContainer>
           </div>
 
-          <div className="flex items-center justify-center gap-6 text-[11px] text-gray-400 pt-2 border-t border-gray-800/80">
+          <div className="flex items-center justify-center gap-6 text-[11px] text-[#A1A1AA] pt-2 border-t border-[#292929]">
             <span className="flex items-center gap-1.5">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500 inline-block" /> Evaluated Skill Level
+              <span className="w-2.5 h-2.5 rounded-full bg-white inline-block" /> Evaluated Skill Level
             </span>
             <span className="flex items-center gap-1.5">
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block" /> Required Minimum
+              <span className="w-2.5 h-2.5 rounded-full bg-[#71717A] inline-block" /> Required Minimum
             </span>
           </div>
         </div>
 
         {/* SECTION 4: Roadmap Milestone Velocity & Sprint Stepper */}
-        <div className="bg-[#121522] border border-gray-800/90 rounded-2xl p-5 shadow-lg flex flex-col justify-between">
+        <div className="bg-[#141414] border border-[#292929] rounded-2xl p-5 flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-3">
               <div>
-                <h2 className="text-base font-bold text-white flex items-center gap-2">
-                  <BookOpen className="w-4 h-4 text-amber-400" />
+                <h2 className="text-base font-bold font-heading text-white flex items-center gap-2">
+                  <BookOpen className="w-4 h-4 text-white" />
                   Roadmap Milestone Velocity
                 </h2>
-                <p className="text-xs text-gray-400">Paced completion of verified learning modules</p>
+                <p className="text-xs text-[#A1A1AA]">Paced completion of verified learning modules</p>
               </div>
-              <span className="text-xs font-bold text-indigo-400">
+              <span className="text-xs font-bold text-white">
                 {stats.modules_completed} of {stats.total_modules} Modules
               </span>
             </div>
 
             {/* Progress Bar */}
-            <div className="w-full bg-[#171b29] h-2.5 rounded-full overflow-hidden border border-gray-800 mb-5">
+            <div className="w-full bg-[#171717] h-2.5 rounded-full overflow-hidden border border-[#292929] mb-5">
               <div
-                className="bg-gradient-to-r from-indigo-500 to-violet-500 h-full rounded-full transition-all duration-500"
+                className="bg-white h-full rounded-full transition-all duration-500"
                 style={{ width: `${stats.roadmap_progress}%` }}
               />
             </div>
 
             {/* Module Stepper list */}
             <div className="space-y-3">
-              <div className="p-3 rounded-xl bg-[#0e111a] border border-emerald-500/30 flex items-center justify-between">
+              <div className="p-3 rounded-xl bg-[#171717] border border-[#292929] flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-white shrink-0" />
                   <div>
-                    <h4 className="text-xs font-bold text-white">Module 1: Modern Component Architecture</h4>
-                    <span className="text-[10px] text-gray-400">Verified by Diagnostic (88.5%)</span>
+                    <h4 className="text-xs font-bold font-heading text-white">Module 1: Modern Component Architecture</h4>
+                    <span className="text-[10px] text-[#A1A1AA]">Verified by Diagnostic (88.5%)</span>
                   </div>
                 </div>
-                <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 font-semibold">
+                <span className="text-[10px] px-2 py-0.5 rounded-full bg-white/10 text-white font-semibold">
                   Completed
                 </span>
               </div>
 
-              <div className="p-3 rounded-xl bg-[#0e111a] border border-indigo-500/40 flex items-center justify-between">
+              <div className="p-3 rounded-xl bg-[#171717] border border-white/20 flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <Zap className="w-4 h-4 text-indigo-400 shrink-0 animate-pulse" />
+                  <Zap className="w-4 h-4 text-white shrink-0 animate-pulse" />
                   <div>
-                    <h4 className="text-xs font-bold text-white">Module 2: Applied Architecture & Persistence</h4>
-                    <span className="text-[10px] text-gray-400">In Progress &bull; Estimated: ~24 hours</span>
+                    <h4 className="text-xs font-bold font-heading text-white">Module 2: Applied Architecture & Persistence</h4>
+                    <span className="text-[10px] text-[#A1A1AA]">In Progress &bull; Estimated: ~24 hours</span>
                   </div>
                 </div>
                 <Link
                   to="/roadmap"
-                  className="text-[11px] px-2.5 py-1 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-semibold transition-colors"
+                  className="text-[11px] px-2.5 py-1 rounded-lg bg-white hover:bg-neutral-200 text-black font-semibold transition-colors"
                 >
                   Continue
                 </Link>
               </div>
 
-              <div className="p-3 rounded-xl bg-[#0e111a] border border-gray-800 flex items-center justify-between opacity-60">
+              <div className="p-3 rounded-xl bg-[#171717] border border-[#292929] flex items-center justify-between opacity-60">
                 <div className="flex items-center gap-3">
-                  <div className="w-4 h-4 rounded-full border border-gray-600 shrink-0" />
+                  <div className="w-4 h-4 rounded-full border border-neutral-600 shrink-0" />
                   <div>
-                    <h4 className="text-xs font-bold text-gray-300">Module 3: Production Deployment & Telemetry</h4>
-                    <span className="text-[10px] text-gray-500">Locked &bull; Requires Module 2 completion</span>
+                    <h4 className="text-xs font-bold font-heading text-[#A1A1AA]">Module 3: Production Deployment & Telemetry</h4>
+                    <span className="text-[10px] text-neutral-500">Locked &bull; Requires Module 2 completion</span>
                   </div>
                 </div>
-                <span className="text-[10px] px-2 py-0.5 rounded-full bg-gray-800 text-gray-400 font-semibold">
+                <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#292929] text-[#A1A1AA] font-semibold">
                   Locked
                 </span>
               </div>
             </div>
           </div>
 
-          <div className="pt-4 border-t border-gray-800/80 text-[11px] text-gray-400 flex items-center justify-between">
+          <div className="pt-4 border-t border-[#292929] text-[11px] text-[#A1A1AA] flex items-center justify-between">
             <span>Estimated runway to complete: ~{stats.estimated_weeks_to_ready} weeks</span>
-            <Link to="/career-match" className="text-indigo-400 hover:text-indigo-300 font-semibold flex items-center gap-1">
+            <Link to="/career-match" className="text-white hover:text-neutral-300 font-semibold flex items-center gap-1">
               <span>Career Readiness</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>

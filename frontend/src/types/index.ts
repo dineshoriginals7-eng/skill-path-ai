@@ -234,6 +234,7 @@ export interface Assessment {
   total_questions: number;
   answered_questions: number;
   score_percentage?: number | null;
+  time_limit_minutes?: number | null;
   questions?: Question[];
   time_started?: string | null;
   time_completed?: string | null;
@@ -253,11 +254,16 @@ export interface CompleteAssessmentResponse {
   skill_scores: {
     skill_name: string;
     score_percentage: number;
-    proficiency: string;
+    proficiency?: string;
+    proficiency_level?: string;
+    strength_level?: string;
+    learning_priority?: string;
+    [key: string]: any;
   }[];
   recommendations: string[];
   next_steps: string[];
   ai_analysis?: Record<string, any> | null;
+  [key: string]: any;
 }
 
 // ------------------------------------------
@@ -394,10 +400,11 @@ export interface LearningModule {
   mini_project?: any | null;
   order_index: number;
   estimated_hours?: number | null;
-  difficulty: DifficultyLevel;
-  status: 'locked' | 'available' | 'in_progress' | 'completed';
-  is_prerequisite_met: boolean;
-  prerequisite_module_ids: string[];
+  difficulty: DifficultyLevel | string;
+  status: 'locked' | 'available' | 'in_progress' | 'completed' | string;
+  is_prerequisite_met?: boolean;
+  prerequisite_module_ids?: string[];
+  progress_percentage?: number;
   progress?: LearningProgress;
   created_at?: string;
   updated_at?: string;

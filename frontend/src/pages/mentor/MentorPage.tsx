@@ -142,15 +142,15 @@ export const MentorPage: React.FC = () => {
         return (
           <div
             key={index}
-            className="my-3 rounded-xl overflow-hidden border border-gray-800 bg-[#090b10] shadow-inner font-mono text-xs"
+            className="my-3 rounded-xl overflow-hidden border border-[#292929] bg-[#171717] font-mono text-xs"
           >
             {language && (
-              <div className="px-3.5 py-1.5 bg-[#141724] border-b border-gray-800 text-[10px] text-gray-400 uppercase tracking-wider flex items-center justify-between">
+              <div className="px-3.5 py-1.5 bg-[#141414] border-b border-[#292929] text-[10px] text-[#A1A1AA] uppercase tracking-wider flex items-center justify-between">
                 <span>{language}</span>
-                <span className="text-[10px] text-gray-500">Syntax Verified</span>
+                <span className="text-[10px] text-[#A1A1AA]">Syntax Verified</span>
               </div>
             )}
-            <pre className="p-3.5 text-emerald-300 overflow-x-auto leading-relaxed">
+            <pre className="p-3.5 text-neutral-200 overflow-x-auto leading-relaxed">
               <code>{code}</code>
             </pre>
           </div>
@@ -174,7 +174,7 @@ export const MentorPage: React.FC = () => {
   };
 
   return (
-    <div className="h-[calc(100vh-4rem)] bg-[#0b0d13] text-gray-100 flex overflow-hidden font-sans relative">
+    <div className="h-[calc(100vh-4rem)] bg-[#090909] text-white flex overflow-hidden font-body relative">
       {/* Mobile Sidebar Toggle Overlay */}
       {sidebarOpen && (
         <div
@@ -185,18 +185,18 @@ export const MentorPage: React.FC = () => {
 
       {/* LEFT SIDEBAR (280px) */}
       <aside
-        className={`fixed md:static inset-y-0 left-0 z-30 w-72 bg-[#121522] border-r border-gray-800/80 flex flex-col justify-between transition-transform duration-300 ${
+        className={`fixed md:static inset-y-0 left-0 z-30 w-72 bg-[#141414] border-r border-[#292929] flex flex-col justify-between transition-transform duration-300 ${
           sidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
         }`}
       >
         <div className="p-4">
           <div className="flex items-center justify-between mb-4">
-            <span className="text-xs font-bold text-gray-400 uppercase tracking-wider flex items-center gap-1.5">
-              <MessageSquare className="w-4 h-4 text-indigo-400" /> Discussions
+            <span className="text-xs font-bold text-[#A1A1AA] uppercase tracking-wider flex items-center gap-1.5">
+              <MessageSquare className="w-4 h-4 text-white" /> Discussions
             </span>
             <button
               onClick={() => setSidebarOpen(false)}
-              className="text-gray-400 hover:text-white md:hidden"
+              className="text-[#A1A1AA] hover:text-white md:hidden"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
@@ -205,7 +205,7 @@ export const MentorPage: React.FC = () => {
           <button
             type="button"
             onClick={handleNewConversation}
-            className="w-full py-2.5 px-3.5 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white font-semibold text-xs shadow-md shadow-indigo-600/25 transition-all flex items-center justify-center gap-2 mb-4"
+            className="w-full py-2.5 px-3.5 rounded-xl bg-white hover:bg-neutral-200 text-black font-semibold text-xs shadow-sm transition-all flex items-center justify-center gap-2 mb-4"
           >
             <Plus className="w-4 h-4" />
             <span>New Conversation</span>
@@ -223,13 +223,13 @@ export const MentorPage: React.FC = () => {
                   }}
                   className={`p-3 rounded-xl cursor-pointer text-xs transition-colors flex items-center justify-between ${
                     isActive
-                      ? 'bg-indigo-600/20 text-white border border-indigo-500/30 font-medium'
-                      : 'text-gray-400 hover:bg-[#171b29] hover:text-gray-200'
+                      ? 'bg-[#171717] text-white border border-[#292929] font-medium'
+                      : 'text-[#A1A1AA] hover:bg-[#171717] hover:text-white'
                   }`}
                 >
                   <div className="truncate max-w-[180px]">
                     <p className="truncate">{sess.title}</p>
-                    <span className="text-[10px] text-gray-500">{sess.date}</span>
+                    <span className="text-[10px] text-[#A1A1AA]">{sess.date}</span>
                   </div>
                 </div>
               );
@@ -238,42 +238,42 @@ export const MentorPage: React.FC = () => {
         </div>
 
         {/* Sidebar Footer info */}
-        <div className="p-4 border-t border-gray-800 text-[11px] text-gray-500 flex items-center gap-2">
-          <Sparkles className="w-3.5 h-3.5 text-indigo-400" />
+        <div className="p-4 border-t border-[#292929] text-[11px] text-[#A1A1AA] flex items-center gap-2">
+          <Sparkles className="w-3.5 h-3.5 text-white" />
           <span>Full context awareness enabled</span>
         </div>
       </aside>
 
       {/* MAIN CHAT AREA */}
-      <main className="flex-1 flex flex-col justify-between bg-[#0e111a] overflow-hidden">
+      <main className="flex-1 flex flex-col justify-between bg-[#090909] overflow-hidden">
         {/* Top Header */}
-        <div className="px-4 sm:px-6 py-3.5 bg-[#121522]/90 border-b border-gray-800/80 backdrop-blur-md flex items-center justify-between">
+        <div className="px-4 sm:px-6 py-3.5 bg-[#141414]/90 border-b border-[#292929] backdrop-blur-md flex items-center justify-between">
           <div className="flex items-center gap-3">
             <button
               onClick={() => setSidebarOpen(!sidebarOpen)}
-              className="p-1.5 rounded-lg bg-gray-800 text-gray-400 hover:text-white md:hidden"
+              className="p-1.5 rounded-lg bg-[#171717] text-[#A1A1AA] hover:text-white md:hidden"
             >
               <Menu className="w-4 h-4" />
             </button>
 
             {/* AI Avatar */}
             <div className="relative">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-violet-500 flex items-center justify-center text-white shadow-md shadow-indigo-600/25">
-                <Brain className="w-5 h-5" />
+              <div className="w-10 h-10 rounded-xl bg-[#171717] border border-[#292929] flex items-center justify-center text-white">
+                <Brain className="w-5 h-5 text-white" />
               </div>
-              <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-500 border-2 border-[#121522] rounded-full" />
+              <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-white border-2 border-[#141414] rounded-full" />
             </div>
 
             <div>
               <div className="flex items-center gap-2">
-                <h3 className="text-sm font-bold text-white tracking-tight">SkillPath AI Mentor</h3>
+                <h3 className="text-sm font-bold font-heading text-white tracking-tight">SkillPath AI Mentor</h3>
                 {isDemo && (
-                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-semibold border border-indigo-500/30">
+                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-white/10 text-white font-semibold border border-white/20">
                     Live Demo Agent
                   </span>
                 )}
               </div>
-              <p className="text-[11px] text-gray-400">
+              <p className="text-[11px] text-[#A1A1AA]">
                 Powered by learner intelligence &bull; Synchronized with your skills
               </p>
             </div>
@@ -294,8 +294,8 @@ export const MentorPage: React.FC = () => {
                 <div
                   className={`w-8 h-8 rounded-lg shrink-0 flex items-center justify-center text-xs ${
                     isUser
-                      ? 'bg-indigo-600 text-white font-bold'
-                      : 'bg-[#181c2b] border border-gray-800 text-indigo-400'
+                      ? 'bg-white text-black font-bold'
+                      : 'bg-[#171717] border border-[#292929] text-white'
                   }`}
                 >
                   {isUser ? <User className="w-4 h-4" /> : <Bot className="w-4 h-4" />}
@@ -306,14 +306,14 @@ export const MentorPage: React.FC = () => {
                   <div
                     className={`p-4 rounded-2xl text-xs sm:text-sm leading-relaxed ${
                       isUser
-                        ? 'bg-gradient-to-r from-indigo-600 to-indigo-700 text-white rounded-tr-none shadow-md'
-                        : 'bg-[#151928] border border-gray-800/90 text-gray-200 rounded-tl-none shadow-lg'
+                        ? 'bg-white text-black rounded-tr-none shadow-sm font-normal'
+                        : 'bg-[#141414] border border-[#292929] text-white rounded-tl-none shadow-sm'
                     }`}
                   >
                     {renderMessageContent(msg.content)}
                   </div>
                   <span
-                    className={`text-[10px] text-gray-500 block ${
+                    className={`text-[10px] text-[#A1A1AA] block ${
                       isUser ? 'text-right' : 'text-left'
                     }`}
                   >
@@ -327,17 +327,17 @@ export const MentorPage: React.FC = () => {
           {/* Typing Indicator */}
           {isTyping && (
             <div className="flex gap-3 max-w-xl mr-auto animate-fade-in">
-              <div className="w-8 h-8 rounded-lg bg-[#181c2b] border border-gray-800 text-indigo-400 flex items-center justify-center shrink-0">
+              <div className="w-8 h-8 rounded-lg bg-[#171717] border border-[#292929] text-white flex items-center justify-center shrink-0">
                 <Bot className="w-4 h-4" />
               </div>
-              <div className="p-3.5 rounded-2xl bg-[#151928] border border-gray-800/90 text-gray-400 text-xs flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-indigo-400 animate-bounce" />
+              <div className="p-3.5 rounded-2xl bg-[#141414] border border-[#292929] text-[#A1A1AA] text-xs flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-white animate-bounce" />
                 <span
-                  className="w-2 h-2 rounded-full bg-indigo-400 animate-bounce"
+                  className="w-2 h-2 rounded-full bg-white animate-bounce"
                   style={{ animationDelay: '0.2s' }}
                 />
                 <span
-                  className="w-2 h-2 rounded-full bg-indigo-400 animate-bounce"
+                  className="w-2 h-2 rounded-full bg-white animate-bounce"
                   style={{ animationDelay: '0.4s' }}
                 />
               </div>
@@ -347,8 +347,8 @@ export const MentorPage: React.FC = () => {
           {/* Suggested Prompts if chat is brief */}
           {messages.length <= 2 && (
             <div className="pt-6">
-              <p className="text-xs text-gray-500 mb-3 font-semibold uppercase tracking-wider flex items-center gap-1.5">
-                <Sparkles className="w-3.5 h-3.5 text-indigo-400" /> Suggested Inquiries
+              <p className="text-xs text-[#A1A1AA] mb-3 font-semibold uppercase tracking-wider flex items-center gap-1.5">
+                <Sparkles className="w-3.5 h-3.5 text-white" /> Suggested Inquiries
               </p>
               <div className="flex flex-wrap gap-2">
                 {SUGGESTED_QUESTIONS.map((q, idx) => (
@@ -356,7 +356,7 @@ export const MentorPage: React.FC = () => {
                     key={idx}
                     type="button"
                     onClick={() => handleSendMessage(q)}
-                    className="px-3.5 py-2 rounded-xl bg-[#151928] hover:bg-indigo-950/40 border border-gray-800 hover:border-indigo-500/40 text-xs text-gray-300 hover:text-white transition-all text-left"
+                    className="px-3.5 py-2 rounded-xl bg-[#141414] hover:bg-[#171717] border border-[#292929] hover:border-neutral-500 text-xs text-[#A1A1AA] hover:text-white transition-all text-left"
                   >
                     {q}
                   </button>
@@ -369,9 +369,9 @@ export const MentorPage: React.FC = () => {
         </div>
 
         {/* Input Bar */}
-        <div className="p-4 bg-[#121522]/90 border-t border-gray-800/80 backdrop-blur-md">
+        <div className="p-4 bg-[#141414]/90 border-t border-[#292929] backdrop-blur-md">
           <div className="max-w-3xl mx-auto space-y-2">
-            <div className="relative rounded-2xl bg-[#171b29] border border-gray-800 focus-within:border-indigo-500 transition-colors p-2 flex items-end gap-2">
+            <div className="relative rounded-2xl bg-[#171717] border border-[#292929] focus-within:border-white transition-colors p-2 flex items-end gap-2">
               <textarea
                 ref={textareaRef}
                 rows={1}
@@ -379,22 +379,22 @@ export const MentorPage: React.FC = () => {
                 onChange={(e) => setInputText(e.target.value)}
                 onKeyDown={handleKeyDown}
                 placeholder="Ask your mentor anything about your skills, roadmap, or architecture concepts..."
-                className="flex-1 bg-transparent border-0 text-sm text-white placeholder-gray-500 focus:outline-none resize-none px-2 py-1 max-h-32"
+                className="flex-1 bg-transparent border-0 text-sm text-white placeholder-[#A1A1AA] focus:outline-none resize-none px-2 py-1 max-h-32"
               />
               <button
                 type="button"
                 onClick={() => handleSendMessage()}
                 disabled={!inputText.trim() || isTyping}
-                className="p-2 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white shadow-md shadow-indigo-600/30 transition-all disabled:opacity-40 shrink-0"
+                className="p-2 rounded-xl bg-white hover:bg-neutral-200 text-black shadow-sm transition-all disabled:opacity-40 shrink-0"
               >
                 <Send className="w-4 h-4" />
               </button>
             </div>
 
-            <div className="flex items-center justify-between text-[11px] text-gray-500 px-1">
+            <div className="flex items-center justify-between text-[11px] text-[#A1A1AA] px-1">
               <span>Press Enter to send, Shift+Enter for new line</span>
               <span className="flex items-center gap-1">
-                <Sparkles className="w-3 h-3 text-indigo-400" />
+                <Sparkles className="w-3 h-3 text-white" />
                 Synthesized with active learner telemetry
               </span>
             </div>
