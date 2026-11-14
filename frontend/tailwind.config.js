@@ -8,11 +8,20 @@ export default {
   theme: {
     extend: {
       fontFamily: {
+        heading: ["Manrope", "sans-serif"],
+        body: ["Inter", "sans-serif"],
         sans: ["Inter", "ui-sans-serif", "system-ui"],
-        display: ["Outfit", "ui-sans-serif"],
+        display: ["Manrope", "ui-sans-serif"],
         mono: ["JetBrains Mono", "ui-monospace"],
       },
       colors: {
+        // Core Palette Variables
+        "bg-primary": "#090909",
+        "bg-secondary": "#171717",
+        "text-primary": "#FFFFFF",
+        "text-secondary": "#A1A1AA",
+        "border-color": "#292929",
+
         // SkillPath AI Design System
         brand: {
           50:  "#eef2ff",
@@ -33,14 +42,14 @@ export default {
           600: "#7c3aed",
         },
         surface: {
-          DEFAULT: "#0f1117",
-          50:  "#f8f9fb",
-          100: "#1a1d27",
-          200: "#21242f",
-          300: "#282c3a",
-          400: "#343846",
-          card: "#1a1d27",
-          border: "#2a2d3a",
+          DEFAULT: "#090909",
+          50:  "#171717",
+          100: "#171717",
+          200: "#1f1f1f",
+          300: "#242424",
+          400: "#2e2e2e",
+          card: "#171717",
+          border: "#292929",
         },
         success: {
           DEFAULT: "#10b981",
@@ -60,7 +69,7 @@ export default {
       },
       backgroundImage: {
         "gradient-brand": "linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)",
-        "gradient-dark": "linear-gradient(135deg, #0f1117 0%, #1a1d27 100%)",
+        "gradient-dark": "linear-gradient(135deg, #090909 0%, #171717 100%)",
         "gradient-card": "linear-gradient(135deg, rgba(99,102,241,0.08) 0%, rgba(139,92,246,0.08) 100%)",
         "gradient-glow": "radial-gradient(ellipse at top, rgba(99,102,241,0.15) 0%, transparent 70%)",
       },
